@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="px-2 py-32 bg-white md:px-0">
-        <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+    <section class="py-32 bg-white md:px-0 w-full">
+        <div class="container items-center max-w-6xl px-8 mx-auto xl:px-0 w-full">
             <div class="flex flex-wrap items-center sm:-mx-3">
                 <div class="w-full md:w-1/2 md:px-3">
                     <div
@@ -17,17 +17,13 @@
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
                             <a href="#_"
                                 class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-400 sm:mb-0 hover:bg-green-500 sm:w-auto rounded-3xl">
-                                Try It Free
+                                Mulai Beramal
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
-                            </a>
-                            <a href="#_"
-                                class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 hover:bg-gray-200 hover:text-gray-600 rounded-3xl">
-                                Learn More
                             </a>
                         </div>
                     </div>
