@@ -5,7 +5,12 @@
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col items-center md:flex-row">
                 <div class="w-full space-y-5 md:w-3/5 md:pr-16">
-                    <p class="font-medium text-green-400 uppercase">AMAL</p>
+                    <p class="font-medium text-green-400 uppercase">
+                        <svg version="1.1" id="logo" class="h-10" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" height="50">
+                            <image href="{{ asset('img/app-img/logo.svg') }}" height="35" />
+                        </svg>
+                    </p>
                     <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">Tersenyum di wajah
                         saudaramu adalah tindakan amal.</h2>
                     <p class="text-xl text-gray-600 md:pr-16">Sabarlah dalam doa, lakukan amal yang teratur, dan tundukkan
@@ -15,14 +20,14 @@
                 <div class="w-full mt-16 md:mt-0 md:w-2/5">
                     <form method="POST" action="{{ route('login') }}">
                         <div
-                            class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 shadow-2xl px-7 rounded-3xl">
+                            class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 shadow-2xl px-7 rounded-xl">
                             <h3 class="mb-6 text-2xl font-medium text-center">Sign in to your Account</h3>
                             @csrf
                             {{-- <input type="text" name="user_group" value="superadmin"> --}}
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <input id="email" type="email" placeholder="Email address"
-                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-3xl @error('email') is-invalid @enderror"
+                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-xl @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
@@ -36,7 +41,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-3xl"
+                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-xl"
                                         placeholder="Password" class="form-control @error('password') is-invalid @enderror"
                                         name="password" required autocomplete="current-password">
 
@@ -60,11 +65,16 @@
                                 </div>
                             </div>
                             <div class="block">
-                                <button class="w-full px-3 py-4 font-medium text-white bg-green-400 rounded-3xl">Log Me
-                                    In</button>
+                                <button
+                                    class="w-full  px-3 py-4 font-medium text-white bg-green-400 rounded-xl hover:bg-green-500">
+                                    <div class="flex flex-row justify-center items-center">
+                                        <i class="fe fe-log-in fe-14 mr-3"></i>
+                                        <p>Sign In</p>
+                                    </div>
+                                </button>
                             </div>
                             <p class="w-full mt-4 text-sm text-center text-gray-500"> Don't have an account?
-                                <a href="{{route('register')}}" class="text-blue-500 underline">
+                                <a href="{{ route('register') }}" class="text-blue-500 underline">
                                     Sign up here</a>
                             </p>
                             @if (Route::has('password.request'))

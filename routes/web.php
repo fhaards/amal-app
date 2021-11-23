@@ -16,8 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepages');
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\UserManagementController::class, 'index'])->name('profile');
+Route::get('/profile-settings', [App\Http\Controllers\UserManagementController::class, 'profileSettings'])->name('profile-settings');
+

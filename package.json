@@ -17,5 +17,8 @@
         "postcss": "^8.3.11",
         "postcss-import": "^14.0.2",
         "tailwindcss": "^2.2.19"
+    },
+    "dependencies": {
+        "@themesberg/flowbite": "^1.1.1"
     }
 }
