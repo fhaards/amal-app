@@ -1,7 +1,6 @@
 <nav class="w-full md:px-6 text-gray-700 z-10">
-    <div
-        class="container mx-auto px-5 py-5 fixed bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
-               md:max-w-6xl md:py-0 md:px-0 md:mx-auto md:flex-row md:relative md:rounded-none md:shadow-none z-10">
+    <div class="container mx-auto px-5 py-5 fixed bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
+               md:max-w-6xl md:py-3 md:px-0 md:mx-auto md:flex-row md:relative md:rounded-none md:shadow-none z-10">
 
         <div class="flex md:order-2 ">
             <button data-collapse-toggle="mobile-menu-2" type="button"
@@ -72,9 +71,9 @@
                 @else
                     <li>
                         <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
-                            class="spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
+                            class="items-center spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
                             type="button">
-                            <i class="fe fe-user fe-16"></i>
+                            <i class="fe fe-user fe-12"></i>
                             <span class="pl-2">{{ Auth::user()->name }}</span>
                         </button>
 
@@ -83,7 +82,8 @@
                             class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow w-44">
                             <ul class="py-1" aria-labelledby="dropdownDividerButton">
                                 <li>
-                                    <a href="{{route('profile')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
+                                    <a href="{{ route('profile.index') }}"
+                                        class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
                                 </li>
                                 <li>
                                     <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>

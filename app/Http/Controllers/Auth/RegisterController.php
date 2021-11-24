@@ -68,6 +68,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'user_group' => 'superadmin',
+            'user_phone' => null,
+            'user_address' => null,
+            'user_photo' => null,
+            'user_status' => null,
             'password' => Hash::make($data['password']),
         ]);
     }

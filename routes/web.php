@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,12 @@ Route::get('/', function () {
 })->name('homepages');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\UserManagementController::class, 'index'])->name('profile');
-Route::get('/profile-settings', [App\Http\Controllers\UserManagementController::class, 'profileSettings'])->name('profile-settings');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*--------------------------------------------------------------------------
+| Profiles
+|--------------------------------------------------------------------------*/
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('profile', ProfileController::class);
+});
