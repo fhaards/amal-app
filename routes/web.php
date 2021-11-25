@@ -28,4 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 |--------------------------------------------------------------------------*/
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('profile', ProfileController::class);
+    Route::get('profile/{profile}/edit-photo', [App\Http\Controllers\ProfileController::class, 'editPhoto'])->name('profile-edit-photo');
+    Route::put('profile/{profile}/change-photo', [App\Http\Controllers\ProfileController::class, 'changePhoto'])->name('profile-change-photo');
 });
