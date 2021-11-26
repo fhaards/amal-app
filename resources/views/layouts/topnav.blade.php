@@ -1,5 +1,6 @@
 <nav class="w-full md:px-6 text-gray-700 z-10">
-    <div class="container mx-auto px-5 py-5 fixed bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
+    <div
+        class="container mx-auto px-5 py-5 fixed bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
                md:max-w-6xl md:py-3 md:px-0 md:mx-auto md:flex-row md:relative md:rounded-none md:shadow-none z-10">
 
         <div class="flex md:order-2 ">
@@ -69,6 +70,12 @@
                     @endif
 
                 @else
+                    <li>
+                        <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                            href="{{ route('beramal') }}">
+                            <i class="fe fe-dollar-sign fe-12"></i>
+                            <span class="pl-2"> Beramal </span></a>
+                    </li>
                     <li>
                         <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
                             class="items-center spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"

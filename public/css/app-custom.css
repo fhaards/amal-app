@@ -1,0 +1,18 @@
+/* .table-list {
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+}
+
+.table-list .table-list-row{
+
+}
+
+.table-list thead tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.table-list thead tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+} */

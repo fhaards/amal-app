@@ -33,7 +33,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user['user'] = Auth::user();
-        return view('pages.user.profile_table_payments', $user);
+        return view('pages.user.profile_dashboard', $user);
     }
 
     public function profile()
@@ -78,7 +78,6 @@ class ProfileController extends Controller
 
     public function changePhoto(Request $request, $id)
     {
-        $cekfiles = '';
         $file = $request->file('file');
         $input = [
             'file'  => $file,
@@ -92,22 +91,13 @@ class ProfileController extends Controller
             'file.mimes' => 'Not Supported Format, Use JPG,JPEG,PNG',
         ];
 
-        // $validator = Validator::make($dataGet, $rules, $messages);
-        // $validator = Validator::make($request->all(), [
-        //     'file'  => 'required|mimes:jpeg,jpg,png'
-        // ]);
-
         $validator = Validator::make($input, $rules, $messages);
 
         if ($validator->fails()) {
             return redirect()->route('profile-edit-photo', $id)->withErrors($messages);
         } else {
-            $uniqnames = (string) Str::uuid();
+            $uniqnames = md5(Auth::user()->name);
             $avatarName = $id . '-' . $uniqnames . '.' . $file->getClientOriginalExtension();
-
-            // if (Auth::user()->user_photo != null) {
-            //     $cekfiles = unlink(storage_path('public/user/avatars/' . Auth::user()->user_photo));
-            // }
 
             $updateUser = $request->user()->update([
                 'user_photo' => $avatarName

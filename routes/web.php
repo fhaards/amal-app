@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\PaymentMethodsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,11 +25,24 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-/*--------------------------------------------------------------------------
-| Profiles
-|--------------------------------------------------------------------------*/
+
 Route::group(['middleware' => 'auth'], function () {
+    /*--------------------------------------------------------------------------
+    | Profiles
+    |--------------------------------------------------------------------------*/
     Route::resource('profile', ProfileController::class);
     Route::get('profile/{profile}/edit-photo', [App\Http\Controllers\ProfileController::class, 'editPhoto'])->name('profile-edit-photo');
     Route::put('profile/{profile}/change-photo', [App\Http\Controllers\ProfileController::class, 'changePhoto'])->name('profile-change-photo');
+
+    /*--------------------------------------------------------------------------
+    | Payment Methods
+    |--------------------------------------------------------------------------*/
+    Route::resource('payment', PaymentMethodsController::class);
+
+    /*--------------------------------------------------------------------------
+    | Transaction
+    |--------------------------------------------------------------------------*/
+    Route::resource('transaction', TransactionController::class);
+    Route::get('beramal/', [App\Http\Controllers\TransactionController::class, 'beramalForm'])->name('beramal');
+    Route::post('beramal/insert', [App\Http\Controllers\TransactionController::class, 'beramalInsert'])->name('beramal-insert');
 });

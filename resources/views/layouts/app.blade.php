@@ -18,6 +18,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/feather.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app-custom.css') }}" rel="stylesheet">
 </head>
 
 <body style="font-family: Nunito">
@@ -83,8 +84,12 @@
         @include('layouts/footer')
     </div>
 
+    @stack('modals')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @include('components/js-stacks')
+    @stack('js-pages')
 </body>
 
 </html>

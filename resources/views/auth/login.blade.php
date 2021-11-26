@@ -11,7 +11,8 @@
                             <image href="{{ asset('img/app-img/logo.svg') }}" height="35" />
                         </svg>
                     </p>
-                    <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">Tersenyum di wajah
+                    <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
+                        Tersenyum di wajah
                         saudaramu adalah tindakan amal.</h2>
                     <p class="text-xl text-gray-600 md:pr-16">Sabarlah dalam doa, lakukan amal yang teratur, dan tundukkan
                         kepalamu dengan orang yang sujud (dalam ibadah).</p>
@@ -24,10 +25,11 @@
                             <h3 class="mb-6 text-2xl font-medium text-center">Sign in to your Account</h3>
                             @csrf
                             {{-- <input type="text" name="user_group" value="superadmin"> --}}
-                            <div class="form-group row">
+                            <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="email" type="email" placeholder="Email address"
-                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-xl @error('email') is-invalid @enderror"
+                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
+                                        @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
@@ -38,11 +40,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="block w-full px-4 py-3 mb-4 border border-2 border-transparent border-gray-200 focus:ring focus:ring-green-400 focus:outline-none rounded-xl"
-                                        placeholder="Password" class="form-control @error('password') is-invalid @enderror"
+                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        @error('password') is-invalid @enderror"
+                                        placeholder="Password"
                                         name="password" required autocomplete="current-password">
 
                                     @error('password')
@@ -66,7 +69,7 @@
                             </div>
                             <div class="block">
                                 <button
-                                    class="w-full  px-3 py-4 font-medium text-white bg-green-400 rounded-xl hover:bg-green-500">
+                                    class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
                                     <div class="flex flex-row justify-center items-center">
                                         <i class="fe fe-log-in fe-14 mr-3"></i>
                                         <p>Sign In</p>
