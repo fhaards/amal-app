@@ -15,7 +15,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form action="{{ route('payment.store') }}" method="post" enctype="multipart/form-data">
+            <form enctype="multipart/form-data" id="edit-payment">
                 <div class="p-6 space-y-6">
                     @if (count($errors) > 0)
                         @foreach ($errors->all() as $message)
@@ -42,14 +42,15 @@
 
 
                     @csrf
+                    @method('PUT')
                     <div class="mb-6">
                         <input type="text" id="Name" name="payment_name"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="payment-name font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                             placeholder="Payment Method Name" value="" required>
                     </div>
                     <div class="mb-6">
                         <select name="category"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="payment-category font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                             required>
                             <option value="Transfer Bank">Transfer Bank</option>
                             <option value="Lainnya">Lainnya</option>
@@ -57,22 +58,22 @@
                     </div>
                     <div class="mb-6">
                         <textarea name="payment_notes"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="payment-notes font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                             required> Payment Notes</textarea>
                     </div>
-                    <div class="mb-6">
+                    {{-- <div class="mb-6">
                         <input
                             class="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg
                                     @error('image') is-invalid @enderror"
                             aria-describedby="user_avatar_help" id="image" name="image" type="file">
-                    </div>
+                    </div> --}}
 
                 </div>
                 <!-- Modal footer -->
                 <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
                     <div class="flex flex-1"></div>
                     <button data-modal-toggle="edit-payment-modal" type="submit"
-                        class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center">
+                        class="submit text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center">
                         Submit
                     </button>
                     <button data-modal-toggle="edit-payment-modal" type="button"

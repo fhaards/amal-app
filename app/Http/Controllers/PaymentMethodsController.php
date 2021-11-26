@@ -93,30 +93,20 @@ class PaymentMethodsController extends Controller
         //
     }
 
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        // $data['payments'] = paym::find($id);
-        // $data['user']     = Auth::user();
-        $data = [];
-
-        $data = [
-            'id' => $id,
-            'test' => 'a'
-        ];
-        
-        $response = array(
-            'data' => $data
-        );
-
-        return json_encode($response);
-
-        // return response()->json($resp, 200);
-        // return view('pages.payment.show_payment', $data);
+        $paym = paym::find($id);
+        return response()->json($paym, 200);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $paym = paym::find($id);
+        $paym->payment_name  = $request->input('payment_name');
+        $paym->category      = $request->input('category');
+        $paym->payment_notes = $request->input('payment_notes');
+        $paym->save();
+        return response()->json($paym, 200);
     }
 
     public function destroy($id)

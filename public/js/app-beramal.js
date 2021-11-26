@@ -32,3 +32,14 @@ function onBlur(e) {
             ? localStringToNumber(value).toLocaleString(undefined, options)
             : "";
 }
+
+function app() {
+    return {
+        step: 1, 
+        passwordStrengthText: '',
+        togglePassword: false,
+        password: '',
+        gender: 'Male',
+
+    }
+}
