@@ -4,7 +4,7 @@ var formBeramalId = document.getElementById("form-beramal");
 var formBeramal = document.querySelector("#form-beramal");
 var submitBeramal = formBeramal.querySelector(".submitForm");
 
-//
+// step 1
 var aliases = formBeramal.querySelector(".aliases");
 var amount = formBeramal.querySelector(".amount");
 var detailAliases = document.getElementById("detail-aliases");
@@ -12,6 +12,9 @@ var detailAmounts = document.getElementById("detail-amount");
 var detailPayment = document.getElementById("detail-payment");
 var setAliases,
     setAmount = 0;
+
+// summary
+var paynotes = formBeramal.querySelector(".payment-notes");
 
 // format inital value
 onBlur({ target: currencyInput });
@@ -61,42 +64,28 @@ function submitForm() {
         let i = 0;
         for (i; i < totalData; i++) {
             // var element = data[i];
+            selval += `<label class="mb-2 flex justify-start items-center text-truncate rounded-lg border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 pl-4 pr-6 py-3">`;
+            selval += `<div class="text-green-400 mr-3">`;
             selval +=
-                `<label class="mb-2 flex justify-start items-center text-truncate rounded-lg border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 pl-4 pr-6 py-3">
-                            <div class="text-green-400 mr-3">
-                                <input type="radio" id="paymethods" name="method_id" value="` +
-                payment.data[i].payment_name +
-                `" class="payments-methods form-radio focus:outline-green-400 focus:shadow-outline" />
-                            </div>
-                            <div class="select-none text-gray-700 font-bold text-md flex justify-between w-full items-center">
+                `     <input type="radio" onclick="paymentInformation(this.value)" id="paymethods" name="method_id" value="` +
+                payment.data[i].id +
+                `" 
+                                class="payments-methods form-radio focus:outline-green-400 focus:shadow-outline" />`;
+            selval += `</div>`;
+            selval +=
+                `<div class="select-none text-gray-700 font-bold text-md flex justify-between w-full items-center">
                                 <img class="max-h-8 ml-5" src="` +
                 getImagesUrl +
                 payment.data[i].image +
                 `">
-                                <div class="w-1/2 text-right">
-                                ` +
+                                <div class="w-1/2 text-right">` +
                 payment.data[i].payment_name +
                 `
-                                </div>
-                            </div>
-                        </label>`;
+                                </div>`;
+            selval += `</div>`;
+            selval += `</label>`;
 
             selectPayment.innerHTML = selval;
-            // if (document.getElementById("paymethods").checked) {
-            //     rate_value = document.getElementById("paymethods").value;
-            //     console.log(rate_value);
-            // }
-
-            // var checkRadio = document.querySelector(
-            //     'input[name="method_id"]:checked'
-            // );
-
-            // if (checkRadio != null) {
-            //     detailPayment.innerHTML =
-            //         checkRadio.value + " radio button checked";
-            // } else {
-            //     detailPayment.innerHTML = "No one selected";
-            // }
         }
     }
 
@@ -104,11 +93,46 @@ function submitForm() {
 
     submitBeramal.addEventListener("click", function (event) {
         event.preventDefault;
-        var sendAliases = getValuesAliases();
-        var sendAmount = getValuesAmount();
+        var sendAliases = formBeramal.querySelector(".aliases").value;
+        var sendAmount = formBeramal.querySelector(".amount").value;
         var payMethod = formBeramal.querySelector(".payments-methods").value;
-        console.log(sendAliases + sendAmount + payMethod);
+        var userId = formBeramal.querySelector(".user_id").value;
+
+        const objAmal = {
+            user_id: userId,
+            aliases: sendAliases,
+            amount: sendAmount,
+            method_id: payMethod,
+        };
+        storeAmal(objAmal);
     });
+
+    async function storeAmal(objAmal) {
+        let tokens = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        const response = await fetch("api/transaction", {
+            method: "POST",
+            body: JSON.stringify(objAmal),
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": tokens,
+            },
+        });
+        const responsejson = await response.json();
+    }
+}
+
+// paymentInformation();
+
+function paymentInformation(val) {
+    async function loadPaymentInformation() {
+        const response = await fetch("api/payment/" + val);
+        var paym = await response.json();
+        paynotes.innerHTML = paym.payment_notes;
+    }
+    loadPaymentInformation();
 }
 
 function formSummary() {
@@ -134,6 +158,40 @@ function app() {
         complete: "",
     };
 }
+
+// let dataJson = {};
+// async function loadPaymentInformation(dataJson) {
+//     let tokens = document
+//         .querySelector('meta[name="csrf-token"]')
+//         .getAttribute("content");
+
+//     const response = await fetch("api/payment/show" + id, {
+//         method: "GET",
+//         body: JSON.stringify(dataJson),
+//         headers: {
+//             "Content-Type": "application/json",
+//             "X-CSRF-TOKEN": tokens,
+//         },
+//     });
+//     const responsejson = await response.json();
+//     return responsejson;
+// }
+
+// loadPaymentInformation();
+
+// if (document.getElementById("paymethods").checked) {
+//     rate_value = document.getElementById("paymethods").value;
+//     console.log(rate_value);
+// }
+// var checkRadio = document.querySelector(
+//     'input[name="method_id"]:checked'
+// );
+// if (checkRadio != null) {
+//     detailPayment.innerHTML =
+//         checkRadio.value + " radio button checked";
+// } else {
+//     detailPayment.innerHTML = "No one selected";
+// }
 
 // const response = await fetch("api/payment/getall");
 // const data = await response.json();

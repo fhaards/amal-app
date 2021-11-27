@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="pt-16 md:pt-10 pb-20 bg-white md:px-0 w-full ">
+    
+    <section class="pt-16 md:pt-10 pb-20 bg-white md:px-0 w-full " id="profile-pages">
         <div class="container items-center max-w-6xl px-8 mx-auto xl:px-0 w-full">
 
             @if (session('status'))
@@ -36,20 +37,19 @@
                             <i class="fe fe-edit fe-10"></i>
                         </a>
                         <div class="p-5 mt-16 flex flex-col gap-2">
-                            <div class="text-center">
-                                <h5 class="uppercase text-gray-900 font-bold text-1xl tracking-wide my-0 py-0">
+                            <div class="text-center max-w-48 w-48">
+                                <h5 class="uppercase text-gray-900 font-bold text-sm tracking-wide mb-4 py-0">
                                     {{ $user->name }}
                                 </h5>
                                 <p class="font-medium text-sm text-gray-600 my-0 py-0">{{ $user->email }}</p>
-                                <span
-                                    class="mt-2 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mr-2">
+                                <span class="mt-2 bg-gray-100  text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-md mr-2">
                                     <svg class="w-3 h-3 mr-1 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                                             clip-rule="evenodd"></path>
-                                    </svg>
-                                    Join At : {{ Auth::user()->created_at }}
+                                    </svg> 
+                                    <span class="text-xs text-gray-500 font-semibold"> Join At : {{ date_format($user->created_at, 'D, m/Y') }} </span>
                                 </span>
                             </div>
                             <div class="md:hidden pt-2 pb-1 mt-2 mb-1 border-t">
@@ -65,19 +65,23 @@
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="{{ Auth::user()->user_group != 'user' ? 'hidden' : '' }} bg-white shadow-sm border border-gray-200 rounded-lg p-4">
-                        <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="name">
-                            Total Amal
-                        </label>
-                    </div>
+                    
+                    @if ($user->user_group == 'user')
+                        <div class="bg-white shadow-sm border border-gray-200 rounded-lg p-4">
+                            <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-1" for="name">
+                                Total
+                            </label>
+                            <span class="total-amal text-sm text-gray-600 font-bold"> </span>
+                        </div>
+                    @endif
+
                     <div class="hidden md:block shadow-sm bg-white rounded-lg border border-gray-200 w-100">
                         <a href="{{ route('transaction.index') }}" type="button"
                             class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200 focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full items-center">
                             <i class="order-first fe fe-dollar-sign fe-12"></i>
                             <div>Transaction</div>
                         </a>
-                        @if (Auth::user()->user_group == 'admin')
+                        @if ($user->user_group == 'admin')
                             <a href="{{ route('payment.index') }}" type="button"
                                 class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200 focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full items-center">
                                 <i class="order-first fe fe-credit-card fe-12"></i>
@@ -107,3 +111,7 @@
         </div>
     </section>
 @endsection
+
+@push('js-pages')
+    <script src="{{ asset('js/app-profile.js') }}"></script>
+@endpush

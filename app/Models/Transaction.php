@@ -15,6 +15,7 @@ class Transaction extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'id_transaction',
         'user_id',
         'aliases',
         'ammount',
@@ -26,9 +27,7 @@ class Transaction extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'id_transaction'
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast.

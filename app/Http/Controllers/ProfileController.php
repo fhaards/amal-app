@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Operating as OPS;
 use App\Models\User;
+use App\Models\Transaction as transc;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -32,8 +33,10 @@ class ProfileController extends Controller
     }
     public function index()
     {
-        $user['user'] = Auth::user();
-        return view('pages.user.profile_dashboard', $user);
+        $getId             = Auth::user()->id;
+        $data['user']      = Auth::user(); 
+        // $user['user'] = Auth::user();
+        return view('pages.user.profile_dashboard', $data);
     }
 
     public function profile()

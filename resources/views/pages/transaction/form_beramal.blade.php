@@ -69,6 +69,8 @@
                     {{-- <form method="POST" action="{{ route('beramal-insert') }}" id="#form-beramal"> --}}
                     <div x-data="app()" x-cloak>
                         <div class="max-w-3xl mx-auto p-10" id="form-beramal">
+                            @csrf;
+                            <input type="hidden" class="user_id" name="user_id" value="{{ $user->id }}">
                             <div x-show.transition="step === 'complete'">
                                 <div class="p-10 flex items-center justify-between">
                                     <div>
@@ -160,10 +162,12 @@
                                     </div>
                                     <div x-show.transition.in="step === 3">
                                         <div class="mb-5">
-                                            <label for="payment" x-model="payment" class="font-bold mb-1 text-gray-700 block"> 
+                                            <label for="payment" x-model="payment"
+                                                class="font-bold mb-1 text-gray-700 block">
                                                 Summary
                                             </label>
-                                            <div class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
+                                            <div
+                                                class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
                                                 <div class="flex justify-between py-2">
                                                     <span class="w-1/2 font-bold">Name </span>
                                                     <span class="w-2/3" id="detail-aliases"> </span>
@@ -177,8 +181,12 @@
                                                     <span class="w-2/3 " id="detail-payment"> </span>
                                                 </div> --}}
                                             </div>
-                                            <div class="flex">
-                                                <p class="text-xs font-semibold"> Selesaikan pembayaran dengan : </p>
+                                            <div class="flex flex-col">
+                                                <p class="font-bold mb-1 text-gray-700 block"> Complete payment : </p>
+                                                <div
+                                                    class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
+                                                    <p class="payment-notes text-sm"></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

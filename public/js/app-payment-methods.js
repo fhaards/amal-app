@@ -23,33 +23,33 @@ document
 
             loadNames();
 
-            formeEditPayment.addEventListener("submit", function (event) {
-                event.preventDefault();
-                const object = {
-                    payment_name: paymentName.value,
-                    category: paymentCate.value,
-                    payment_notes: paymentNote.value,
-                };
-                postName(object);
-                location.reload();
-            });
+            // formeEditPayment.addEventListener("submit", function (event) {
+            //     event.preventDefault();
+            //     const object = {
+            //         payment_name: paymentName.value,
+            //         category: paymentCate.value,
+            //         payment_notes: paymentNote.value,
+            //     };
+            //     postName(object);
+            //     location.reload();
+            // });
 
-            async function postName(object) {
-                let token = document
-                    .querySelector('meta[name="csrf-token"]')
-                    .getAttribute("content");
+            // async function postName(object) {
+            //     let token = document
+            //         .querySelector('meta[name="csrf-token"]')
+            //         .getAttribute("content");
 
-                const response = await fetch("api/payment/" + id, {
-                    method: "PUT",
-                    body: JSON.stringify(object),
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": token,
-                    },
-                });
-                const responsejson = await response.json();
-                return responsejson;
-            }
+            //     const response = await fetch("api/payment/" + id, {
+            //         method: "PUT",
+            //         body: JSON.stringify(object),
+            //         headers: {
+            //             "Content-Type": "application/json",
+            //             "X-CSRF-TOKEN": token,
+            //         },
+            //     });
+            //     const responsejson = await response.json();
+            //     return responsejson;
+            // }
 
             // submitEdit.addEventListener("click", function (event) {
             //     event.preventDefault();
