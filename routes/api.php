@@ -17,6 +17,6 @@ use App\Http\Controllers\PaymentMethodsController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); 
-// Route::get('payment/{id}/edit', [App\Http\Controllers\ProfileController::class, 'edit']);
+
 Route::resource('payment', PaymentMethodsController::class);
-// Route::put('payment/update/{id}', [App\Http\Controllers\ProfileController::class, 'update']);
+Route::get('payments/getall', [App\Http\Controllers\PaymentMethodsController::class, 'getAll']);

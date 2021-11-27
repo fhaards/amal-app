@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     | Payment Methods
     |--------------------------------------------------------------------------*/
     Route::resource('payment', PaymentMethodsController::class);
+    // Route::get('payments/getall', [App\Http\Controllers\PaymentMethodsController::class, 'getAll']);
 
     /*--------------------------------------------------------------------------
     | Transaction

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section
-        class="md:mt-0 mt-5 md:min-h-screen w-full px-8 py-0 bg-gray-100 xl:px-8 justify-items-center items-center flex">
+    <section class="md:mt-0 mt-5 w-full px-8 py-24 bg-green-50 xl:px-8 justify-items-center items-center flex">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col items-center md:flex-row h-auto">
                 <div class="w-full space-y-5 md:w-3/5 md:pr-16">
@@ -20,7 +19,7 @@
                     </p>
                 </div>
 
-                <div class="w-full mt-0 md:mt-0 md:w-2/5 bg-white rounded-lg shadow-lg">
+                <div class="w-full mt-5 md:mt-0 md:w-2/5 bg-white rounded-xl shadow-xl">
                     {{-- <form method="POST" action="{{route('beramal-insert')}}" id="#form-beramal">
                         <div
                             class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 shadow-2xl px-7 rounded-xl">
@@ -67,10 +66,11 @@
                             </div>
                         </div>
                     </form> --}}
+                    {{-- <form method="POST" action="{{ route('beramal-insert') }}" id="#form-beramal"> --}}
                     <div x-data="app()" x-cloak>
-                        <div class="max-w-3xl mx-auto p-10">
+                        <div class="max-w-3xl mx-auto p-10" id="form-beramal">
                             <div x-show.transition="step === 'complete'">
-                                <div class="bg-white rounded-lg p-10 flex items-center shadow justify-between">
+                                <div class="p-10 flex items-center justify-between">
                                     <div>
                                         <svg class="mb-4 h-20 w-20 text-green-500 mx-auto" viewBox="0 0 20 20"
                                             fill="currentColor">
@@ -79,12 +79,12 @@
                                                 clip-rule="evenodd" />
                                         </svg>
 
-                                        <h2 class="text-2xl mb-4 text-gray-800 text-center font-bold">Registration Success
+                                        <h2 class="text-2xl mb-4 text-gray-800 text-center font-bold">Success
                                         </h2>
 
                                         <div class="text-gray-600 mb-8">
-                                            Thank you. We have sent you an email to demo@demo.test. Please click the link in
-                                            the message to activate your account.
+                                            Terima kasih, kami sangat menghargai berapapun nominal uang yang diberikan.
+                                            semoga Allah membalasmu dengan kebaikan.
                                         </div>
 
                                         <button @click="step = 1"
@@ -102,18 +102,21 @@
                                     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                                         <div class="flex-1">
                                             <div x-show="step === 1">
-                                                <div class="text-lg font-bold text-gray-700 leading-tight">Your Profile
+                                                <div class="text-lg font-bold text-gray-700 leading-tight">
+                                                    Personal
                                                 </div>
                                             </div>
 
                                             <div x-show="step === 2">
-                                                <div class="text-lg font-bold text-gray-700 leading-tight">Your Password
+                                                <div class="text-lg font-bold text-gray-700 leading-tight">
+                                                    Payment
                                                 </div>
                                             </div>
 
                                             <div x-show="step === 3">
-                                                <div class="text-lg font-bold text-gray-700 leading-tight">Tell me about
-                                                    yourself</div>
+                                                <div class="text-lg font-bold text-gray-700 leading-tight">
+                                                    Details
+                                                </div>
                                             </div>
                                         </div>
 
@@ -130,167 +133,90 @@
                                 <!-- /Top Navigation -->
 
                                 <!-- Step Content -->
-                                <div class="py-10">
+                                <div class="py-5">
                                     <div x-show.transition.in="step === 1">
                                         <div class="mb-5">
-                                            <input id="aliases" type="text" placeholder="Alias / Nama Asli"
-                                                class="aliases font-bold shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
-                                            @error('aliases') is-invalid @enderror"
-                                                name="aliases" value="{{ old('aliases') }}" required autocomplete="email"
-                                                autofocus>
-
-                                            @error('aliases')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                            <input type="text" id="set-aliases" placeholder="Alias / Nama Asli"
+                                                class="aliases font-bold bg-white focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                                name="aliases" value="" required>
                                         </div>
 
                                         <div class="mb-5 text-center">
-                                            <input id="amount" type="currency" min="0" step="0.01" placeholder="Nominal"
-                                                class="amount font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
-                                            @error('amount') is-invalid @enderror"
-                                                name="amount" value="{{ old('amount') }}" required autocomplete="email"
-                                                autofocus>
-
-                                            @error('amount')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                            <input type="currency" id="set-amount" min="0" step="0.01" placeholder="Nominal"
+                                                class="amount font-bold bg-white focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                                name="amount" value="" required>
                                         </div>
-
-                                        <div class="mb-5">
-                                            <label for="email" class="font-bold mb-1 text-gray-700 block">Email</label>
-                                            <input type="email"
-                                                class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                                                placeholder="Enter your email address...">
-                                        </div>
-
                                     </div>
                                     <div x-show.transition.in="step === 2">
-
                                         <div class="mb-5">
-                                            <label for="password" class="font-bold mb-1 text-gray-700 block">Set up
-                                                password</label>
-                                            <div class="text-gray-600 mt-2 mb-4">
-                                                Please create a secure password including the following criteria below.
+                                            <label for="password" class="font-bold mb-1 text-gray-700 block">
+                                                Select Payment Method
+                                            </label>
 
-                                                <ul class="list-disc text-sm ml-4 mt-2">
-                                                    <li>lowercase letters</li>
-                                                    <li>numbers</li>
-                                                    <li>capital letters</li>
-                                                    <li>special characters</li>
-                                                </ul>
+                                            <div class="select-payment flex flex-col mt-5">
+                                                {{-- Looping in Js --}}
                                             </div>
-
-                                            <div class="relative">
-                                                <input :type="togglePassword ? 'text' : 'password'"
-                                                    @keydown="checkPasswordStrength()" x-model="password"
-                                                    class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                                                    placeholder="Your strong password...">
-
-                                                <div class="absolute right-0 bottom-0 top-0 px-3 py-3 cursor-pointer"
-                                                    @click="togglePassword = !togglePassword">
-                                                    <svg :class="{'hidden': !togglePassword, 'block': togglePassword }"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-6 h-6 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M12 19c.946 0 1.81-.103 2.598-.281l-1.757-1.757C12.568 16.983 12.291 17 12 17c-5.351 0-7.424-3.846-7.926-5 .204-.47.674-1.381 1.508-2.297L4.184 8.305c-1.538 1.667-2.121 3.346-2.132 3.379-.069.205-.069.428 0 .633C2.073 12.383 4.367 19 12 19zM12 5c-1.837 0-3.346.396-4.604.981L3.707 2.293 2.293 3.707l18 18 1.414-1.414-3.319-3.319c2.614-1.951 3.547-4.615 3.561-4.657.069-.205.069-.428 0-.633C21.927 11.617 19.633 5 12 5zM16.972 15.558l-2.28-2.28C14.882 12.888 15 12.459 15 12c0-1.641-1.359-3-3-3-.459 0-.888.118-1.277.309L8.915 7.501C9.796 7.193 10.814 7 12 7c5.351 0 7.424 3.846 7.926 5C19.624 12.692 18.76 14.342 16.972 15.558z" />
-                                                    </svg>
-
-                                                    <svg :class="{'hidden': togglePassword, 'block': !togglePassword }"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-6 h-6 fill-current text-gray-500" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M12,9c-1.642,0-3,1.359-3,3c0,1.642,1.358,3,3,3c1.641,0,3-1.358,3-3C15,10.359,13.641,9,12,9z" />
-                                                        <path
-                                                            d="M12,5c-7.633,0-9.927,6.617-9.948,6.684L1.946,12l0.105,0.316C2.073,12.383,4.367,19,12,19s9.927-6.617,9.948-6.684 L22.054,12l-0.105-0.316C21.927,11.617,19.633,5,12,5z M12,17c-5.351,0-7.424-3.846-7.926-5C4.578,10.842,6.652,7,12,7 c5.351,0,7.424,3.846,7.926,5C19.422,13.158,17.348,17,12,17z" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-
-                                            <div class="flex items-center mt-4 h-3">
-                                                <div class="w-2/3 flex justify-between h-2">
-                                                    <div :class="{ 'bg-red-400': passwordStrengthText == 'Too weak' ||  passwordStrengthText == 'Could be stronger' || passwordStrengthText == 'Strong password' }"
-                                                        class="h-2 rounded-full mr-1 w-1/3 bg-gray-300"></div>
-                                                    <div :class="{ 'bg-orange-400': passwordStrengthText == 'Could be stronger' || passwordStrengthText == 'Strong password' }"
-                                                        class="h-2 rounded-full mr-1 w-1/3 bg-gray-300"></div>
-                                                    <div :class="{ 'bg-green-400': passwordStrengthText == 'Strong password' }"
-                                                        class="h-2 rounded-full w-1/3 bg-gray-300"></div>
-                                                </div>
-                                                <div x-text="passwordStrengthText"
-                                                    class="text-gray-500 font-medium text-sm ml-3 leading-none"></div>
-                                            </div>
-
-                                            <p class="mt-5 text-gray-600">Inspired from dribbble shot: Exploration for a
-                                                password strength meter by <a href="https://dribbble.com/OvertonGraphics"
-                                                    class="text-blue-500">Josh Overton</a>.</p>
                                         </div>
-
                                     </div>
                                     <div x-show.transition.in="step === 3">
                                         <div class="mb-5">
-                                            <label for="email" class="font-bold mb-1 text-gray-700 block">Gender</label>
-
+                                            <label for="payment" x-model="payment" class="font-bold mb-1 text-gray-700 block"> 
+                                                Summary
+                                            </label>
+                                            <div class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
+                                                <div class="flex justify-between py-2">
+                                                    <span class="w-1/2 font-bold">Name </span>
+                                                    <span class="w-2/3" id="detail-aliases"> </span>
+                                                </div>
+                                                <div class="flex justify-between py-2 border-t border-gray-200">
+                                                    <span class="w-1/2 font-bold">Amount </span>
+                                                    <span class="w-2/3" id="detail-amount"></span>
+                                                </div>
+                                                {{-- <div class="flex justify-between py-2 border-t">
+                                                    <span class="w-1/2 font-bold">Payment Method </span>
+                                                    <span class="w-2/3 " id="detail-payment"> </span>
+                                                </div> --}}
+                                            </div>
                                             <div class="flex">
-                                                <label
-                                                    class="flex justify-start items-center text-truncate rounded-lg bg-white pl-4 pr-6 py-3 shadow-sm mr-4">
-                                                    <div class="text-teal-600 mr-3">
-                                                        <input type="radio" x-model="gender" value="Male"
-                                                            class="form-radio focus:outline-none focus:shadow-outline" />
-                                                    </div>
-                                                    <div class="select-none text-gray-700">Male</div>
-                                                </label>
-
-                                                <label
-                                                    class="flex justify-start items-center text-truncate rounded-lg bg-white pl-4 pr-6 py-3 shadow-sm">
-                                                    <div class="text-teal-600 mr-3">
-                                                        <input type="radio" x-model="gender" value="Female"
-                                                            class="form-radio focus:outline-none focus:shadow-outline" />
-                                                    </div>
-                                                    <div class="select-none text-gray-700">Female</div>
-                                                </label>
+                                                <p class="text-xs font-semibold"> Selesaikan pembayaran dengan : </p>
                                             </div>
                                         </div>
+                                    </div>
+                                    <!-- / Step Content -->
+                                </div>
+                            </div>
 
-                                        <div class="mb-5">
-                                            <label for="profession"
-                                                class="font-bold mb-1 text-gray-700 block">Profession</label>
-                                            <input type="profession"
-                                                class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                                                placeholder="eg. Web Developer">
+                            <!-- Bottom Navigation -->
+                            <div class=" bottom-0 left-0 right-0 py-5 px-0" x-show="step != 'complete'">
+                                <div class="max-w-3xl mx-auto">
+                                    <div class="flex justify-between">
+                                        <div class="w-1/2">
+                                            <button x-show="step > 1" @click="step--"
+                                                class="w-32 inline-flex items-center gap-2 py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-bold border">
+                                                <i class="fe fe-arrow-left fe-16"></i> Previous
+                                            </button>
+                                        </div>
+
+                                        <div class="w-1/2 text-right">
+                                            <button x-show="step < 3" @click="step++"
+                                                class="w-32 inline-flex items-center gap-2 border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-green-400 hover:bg-green-500 font-bold">
+                                                Next <i class="fe fe-arrow-right fe-16"></i>
+                                            </button>
+
+                                            <button @click="step = 'complete'" x-show="step === 3" type="submit"
+                                                class="submitForm w-32 inline-flex items-center gap-2 border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-green-400 hover:bg-green-500 font-bold">
+                                                Complete <i class="fe fe-check fe-16"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- / Step Content -->
                             </div>
+                            <!-- / Bottom Navigation -->
                         </div>
-
-                        <!-- Bottom Navigation -->
-                        <div class=" bottom-0 left-0 right-0 py-10" x-show="step != 'complete'">
-                            <div class="max-w-3xl mx-auto px-4">
-                                <div class="flex justify-between">
-                                    <div class="w-1/2">
-                                        <button x-show="step > 1" @click="step--"
-                                            class="w-32 focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border">Previous</button>
-                                    </div>
-
-                                    <div class="w-1/2 text-right">
-                                        <button x-show="step < 3" @click="step++"
-                                            class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium">Next</button>
-
-                                        <button @click="step = 'complete'" x-show="step === 3"
-                                            class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium">Complete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- / Bottom Navigation https://placehold.co/300x300/e2e8f0/cccccc -->
+                        {{-- </form> --}}
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 @endsection
 

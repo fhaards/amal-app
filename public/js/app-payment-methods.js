@@ -3,7 +3,7 @@ var paymentEdit = document.querySelector("#edit-payment");
 var paymentName = paymentEdit.querySelector(".payment-name");
 var paymentCate = paymentEdit.querySelector(".payment-category");
 var paymentNote = paymentEdit.querySelector(".payment-notes");
-var submitEdit = paymentEdit.querySelector(".submit");
+var submitEdit  = paymentEdit.querySelector(".submit");
 
 document
     .querySelectorAll("#table-paymethod tbody .edit-paymethod")

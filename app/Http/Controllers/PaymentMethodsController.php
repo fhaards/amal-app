@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PaymentMethod as paym;
@@ -90,7 +91,39 @@ class PaymentMethodsController extends Controller
 
     public function show($id)
     {
-        //
+        $paym = paym::find($id);
+        return response()->json($paym, 200);
+    }
+
+    public function getAll()
+    {
+        $totalData = 0;
+        $paym      = null;
+        $data      = [];
+
+        $paym = paym::all();
+        if ($paym->count() > 0) {
+            foreach ($paym as $dt) :
+                $data[] = [
+                    'id'  => $dt->id,
+                    'payment_name'  => (string)$dt->payment_name,
+                    'payment_notes' => (string)$dt->payment_notes,
+                    'category'      => (string)$dt->category,
+                    'image'         => (string)$dt->image,
+                ];
+            endforeach;
+            $totalData = $paym->count();
+        }
+
+        $response = array(
+            'total' => $totalData,
+            'data'  => $data
+        );
+
+        return response()->json($response, 200);
+        // $paym      = DB::table('payment_methods')->get();
+        // $paym = paym::all();
+        // return response()->json($paym, 200);
     }
 
     public function edit($id)
