@@ -23,10 +23,10 @@
 </head>
 
 <body style="font-family: Nunito">
-    <div id="app">
+    <div id="app" class="max-w-screen">
         @include('sweetalert::alert')
         @include('layouts/topnav')
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
         @include('layouts/footer')

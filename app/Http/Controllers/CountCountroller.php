@@ -19,19 +19,26 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class CountCountroller extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function countAmal(Request $request)
     {
+        $responses = null;
+        $user = new User;
+        $id   = $user->id;
         $transc = transc::select('amount', 'user_id', 'status')
-            ->where('user_id', 2)
+            ->where('user_id', $id)
             ->where('status', 'Complete')
             ->sum('amount');
 
         if ($transc == 0) :
-            $transc = '<i class="text-xs text-gray-400"> - </i>';
+            $responses = '<i class="text-xs text-gray-400"> - </i>';
         else :
-            $transc = 'Rp ' . number_format($transc);
+            $responses = 'Rp ' . number_format($transc);
         endif;
-        $response = $transc;
+        $response = $responses;
         return response()->json($response, 200);
     }
 }

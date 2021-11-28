@@ -1,39 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="w-full px-8 py-16 bg-gray-100 xl:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col items-center md:flex-row">
-                <div class="mt-16 md:mt-0 w-full space-y-5 md:w-3/5 md:pr-16">
+    <section class="w-full pt-16 md:py-24 bg-green-100 xl:px-8">
+        <div class="max-w-6xl sm:mx-auto">
+            <div class="flex flex-col items-center md:flex-row md:px-0">
+                <div class="px-8 sm:pr-24 my-20 sm:px-0 sm:my-0 w-full space-y-5 md:w-3/5 md:bg-transparent bg-green-100 ">
                     <p class="font-medium text-green-400 uppercase">
                         <svg version="1.1" id="logo" class="h-10" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" height="50">
                             <image href="{{ asset('img/app-img/logo.svg') }}" height="35" />
                         </svg>
                     </p>
-                    <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
+                    <h3 class="text-3xl font-bold text-gray-900 xl:text-6xl">
                         Tersenyum di wajah
-                        saudaramu adalah tindakan amal.</h2>
-                    <p class="text-xl text-gray-600 md:pr-16">Sabarlah dalam doa, lakukan amal yang teratur, dan tundukkan
+                        saudaramu adalah tindakan amal.
+                    </h3>
+                    <p class="text-gray-700">Sabarlah dalam doa, lakukan amal yang teratur, dan tundukkan
                         kepalamu dengan orang yang sujud (dalam ibadah).</p>
                 </div>
 
                 <div class="w-full mt-16 md:mt-0 md:w-2/5 z-0">
                     <form method="POST" action="{{ route('login') }}">
-                        <div
-                            class="relative z-10 h-auto p-8 py-10 overflow-hidden bg-white border-b-2 border-gray-300 shadow-2xl px-7 rounded-xl">
+                        <div class="relative z-0 h-auto px-8 sm:px-0 py-16 sm:py-10 sm:px-10 overflow-hidden bg-white sm:border-b-2 sm:border-gray-300 sm:shadow-2xl sm:rounded-xl">
                             <h3 class="mb-6 text-2xl font-medium text-center">Sign in to your Account</h3>
                             @csrf
                             {{-- <input type="text" name="user_group" value="superadmin"> --}}
                             <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="email" type="email" placeholder="Email address"
-                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
                                         @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-red-500 py-2" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -43,7 +43,7 @@
                             <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('password') is-invalid @enderror"
                                         placeholder="Password"
                                         name="password" required autocomplete="current-password">

@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="w-full bg-white mt-12 md:mt-5">
-        <div class="mx-auto max-w-7xl">
-            <div class="flex flex-col lg:flex-row">
-                <div
-                    class="relative w-full bg-cover rounded-3xl lg:w-6/12 xl:w-7/12 bg-gradient-to-r from-white via-white to-gray-100">
-                    <div
-                        class="relative flex flex-col items-center justify-center w-full h-full px-10 my-20 lg:px-16 lg:my-0">
+    <section class="w-full sm:bg-white bg-green-100">
+        <div class="mx-auto sm:max-w-7xl pt-16">
+            <div class="flex flex-col md:flex-row">
+                <div class="relative w-full bg-cover rounded-3xl md:w-6/12 xl:w-7/12 sm:bg-gradient-to-r from-white via-white to-gray-100">
+                    <div class="px-16 my-20 sm:px-16 sm:my-0  relative flex flex-col items-center justify-center w-full h-full">
                         <div class="flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
                             <div class="relative">
                                 <p class="mb-2 font-medium uppercase text-green-400">
@@ -29,8 +27,8 @@
                     </div>
                 </div>
 
-                <div class="w-full bg-white lg:w-6/12 xl:w-5/12">
-                    <div class="flex flex-col items-end items-start justify-start w-100 h-full p-5   lg:p-8">
+                <div class="w-full mt-5 md:mt-0 sm:pt-0 pt-8 md:w-2/5 z-0 px-8 sm:px-0 sm:bg-transparent bg-white rounded-t-2xl sm:rounded-0">
+                    <div class="flex flex-col items-end items-center justify-start w-100 h-full  ">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <h4 class="w-full text-3xl font-bold">Signup</h4>
@@ -41,7 +39,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Name</label>
                                     <input
-                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('name') is-invalid @enderror"
                                         placeholder="Enter Your Name" id="name" type="text" class=""
                                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -54,7 +52,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Email</label>
                                     <input
-                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('email') is-invalid @enderror"
                                         placeholder="Enter Your Email Address" id="email" type="email" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
@@ -67,7 +65,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Password</label>
                                     <input
-                                        class="mb-4 font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="mb-4 font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('password') is-invalid @enderror"
                                         placeholder="Password" id="password" type="password" name="password" required
                                         autocomplete="new-password">
@@ -79,7 +77,7 @@
                                     @enderror
 
                                     <input
-                                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                                         placeholder="Confirm Password" id="password-confirm" type="password"
                                         class="form-control" name="password_confirmation" required
                                         autocomplete="new-password">

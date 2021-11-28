@@ -1,8 +1,8 @@
 <div id="detail-trans-modal" aria-hidden="true"
-    class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-10 left-0 right-0 md:inset-0 z-50 justify-center md:items-center items-end">
-    <div class="relative w-full max-w-3xl md:px-4 h-100 md:h-auto">
+    class=" hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-10 left-0 right-0 md:inset-0 z-50 justify-center md:items-center items-end">
+    <div class="relative w-full max-w-3xl md:px-4 h-100 md:h-auto ">
         <!-- Modal content -->
-        <div class="bg-white md:rounded-lg shadow relative" 
+        <div class=" bg-white md:rounded-lg shadow relative" 
             class="absolute inset-y-0 left-1/2 h-20 flex items-center pl-12 pr-3 space-x-2 bg-gray-800 rounded-tr-full rounded-br-full"
             <!-- Modal header -->
             <div class="flex items-start justify-between p-5 border-b rounded-t">

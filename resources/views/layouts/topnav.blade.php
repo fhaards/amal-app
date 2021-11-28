@@ -1,6 +1,7 @@
-<nav class="w-100 md:px-6 text-gray-700 z-10 bg-white">
-    <div class="container mx-auto">
-        <div class="w-100 px-5 py-3 fixed bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
+<nav class="w-full md:px-6 text-gray-700 z-10 fixed sm:relative h-16 transition-all duration-150 sm:h-24">
+    <div class="container mx-auto w-100 px-3 pt-3 sm:pt-0">
+        <div
+            class="w-full px-5 py-3  left:0 bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
                md:max-w-6xl md:py-3 md:px-0 md:mx-auto md:flex-row md:relative md:rounded-none md:shadow-none z-10">
 
             <div class="flex md:order-2 ">
@@ -33,7 +34,8 @@
                 </div>
             </div>
 
-            <div class="w-full hidden md:flex justify-between items-center w-100 md:w-auto md:order-2" id="mobile-menu-2">
+            <div class="w-full hidden md:flex justify-between items-center w-100 md:w-auto md:order-2"
+                id="mobile-menu-2">
                 <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-bold">
                     <li>
                         <a href="{{ route('homepages') }}"
@@ -75,10 +77,10 @@
                         <li>
                             <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
                                 href="{{ route('beramal') }}">
-                                 Beramal
+                                Beramal
                             </a>
                         </li>
-                        <li>
+                        <li class="w-full">
                             <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
                                 class="md:w-auto w-full items-center spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
                                 type="button">
@@ -87,9 +89,8 @@
                             </button>
 
                             <!-- Dropdown menu -->
-                            <ul id="dropdownDivider"
-                                class="hidden bg-white w-full md:w-44 px-5 md:px-0 text-base z-10 list-none divide-y divide-gray-100 rounded shadow">
-                                <ul class="py-1" aria-labelledby="dropdownDividerButton">
+                            <ul id="dropdownDivider"  class="hidden text-base z-10 list-none divide-y divide-gray-100">
+                                <ul class="bg-white sm:w-44 px-5 md:px-0 rounded shadow" aria-labelledby="dropdownDividerButton">
                                     <li>
                                         <a href="{{ route('profile.index') }}"
                                             class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
@@ -98,20 +99,21 @@
                                         <a href="#"
                                             class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
                                     </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a class="font-bold leading-6 text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
-                                        href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <i class="fe fe-log-out fe-16 pr-2"></i>
-                                        {{ __('Logout') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                    <li class="py-1">
+                                        <a class="font-bold leading-6 text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2"
+                                            href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fe fe-log-out fe-16 pr-2"></i>
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
                             </ul>
                         </li>
                     @endguest

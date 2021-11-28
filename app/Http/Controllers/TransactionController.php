@@ -18,10 +18,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            if (session('success')) {
+                Alert::success(session('success'));
+            }
+
+            if (session('error')) {
+                Alert::error(session('error'));
+            }
+
+            return $next($request);
+        });
+    }
 
     public function index()
     {
@@ -50,25 +60,54 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        //Config
+        //Request
+        $getAliases = $request->input('aliases');
+        $getMethod  = $request->input('method_id');
         $getAmount  = $request->input('amount');
-        $getAmount1 = str_replace('.', '', $getAmount);
-        $getAmount2 = preg_replace('~[\\\\/:*?"<>|]~', '', $getAmount1);
-        $getAmount3 = str_replace("Rp ", '',  $getAmount2);
-        $getAmount4 = substr($getAmount3, 4);
-        $getAmountFix = (int)$getAmount4;
-        $genIdTransc = (string) Str::orderedUuid();
+        $getId      = $request->input('user_id');
 
-        //Storing
-        $transc = new transc;
-        $transc->id_transaction = $genIdTransc;
-        $transc->user_id        = $request->input('user_id');
-        $transc->method_id      = $request->input('method_id');
-        $transc->aliases        = $request->input('aliases');
-        $transc->amount         = $getAmountFix;
-        $transc->status         = "Unpaid";
-        $transc->save();
-        return response()->json($transc, 200);
+        //Validation
+        $input = [
+            'aliases'  => $getAliases,
+            'method_id'  => $getMethod,
+            'amount'  => $getAmount,
+        ];
+
+        $rules = [
+            'aliases'  => 'required',
+            'method_id'  => 'required',
+            'amount'  => 'required',
+        ];
+
+        $messages = [
+            'aliases.required' => 'Required Aliases',
+            'method_id.required' => 'Required Aliases',
+            'amount.required' => 'Required Aliases',
+        ];
+
+        $validator = Validator::make($input, $rules, $messages);
+        if ($validator->fails()) {
+            return redirect()->route('payment.index')->withErrors($messages);
+        } else {
+            //Config
+            $getAmount1 = str_replace('.', '', $getAmount);
+            $getAmount2 = preg_replace('~[\\\\/:*?"<>|]~', '', $getAmount1);
+            $getAmount3 = str_replace("Rp ", '',  $getAmount2);
+            $getAmount4 = substr($getAmount3, 4);
+            $getAmountFix = (int)$getAmount4;
+            $genIdTransc = (string) Str::orderedUuid();
+
+            //Storing
+            $transc = new transc;
+            $transc->id_transaction = $genIdTransc;
+            $transc->user_id        = $getId;
+            $transc->method_id      = $getMethod;
+            $transc->aliases        = $getAliases;
+            $transc->amount         = $getAmountFix;
+            $transc->status         = "Unpaid";
+            $transc->save();
+            return response()->json($transc, 200);
+        }
     }
 
     public function show($id)
