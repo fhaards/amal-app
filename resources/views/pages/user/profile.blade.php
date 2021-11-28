@@ -3,7 +3,7 @@
 @section('content')
     
     <section class="pt-16 md:pt-10 pb-20 bg-white md:px-0 w-full " id="profile-pages">
-        <div class="container items-center max-w-6xl px-8 mx-auto xl:px-0 w-full">
+        <div class="container items-center md:max-w-6xl px-8 mx-auto xl:px-0 w-full">
 
             @if (session('status'))
                 <div class="card-body">
@@ -77,26 +77,26 @@
 
                     <div class="hidden md:block shadow-sm bg-white rounded-lg border border-gray-200 w-100">
                         <a href="{{ route('transaction.index') }}" type="button"
-                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200 focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full items-center">
+                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200  w-full items-center">
                             <i class="order-first fe fe-dollar-sign fe-12"></i>
                             <div>Transaction</div>
                         </a>
                         @if ($user->user_group == 'admin')
                             <a href="{{ route('payment.index') }}" type="button"
-                                class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200 focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full items-center">
+                                class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200  w-full items-center">
                                 <i class="order-first fe fe-credit-card fe-12"></i>
                                 <div>Payment Method</div>
                             </a>
                         @endif
                         <a href="{{ route('profile.index') }}" type="button"
-                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200 focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full rounded-t-lg items-center">
+                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200  w-full rounded-t-lg items-center">
                             <i class="order-first fe fe-user fe-12"></i>
                             <div>Profile</div>
                             <span
                                 class="order-last fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>
                         </a>
                         <a href="{{ route('profile.edit', $user->id) }}" type="button"
-                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium focus:z-1 focus:ring-2 focus:ring-green-400 focus:text-green-400 w-full rounded-b-lg  items-center">
+                            class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium  w-full rounded-b-lg  items-center">
                             <i class="order-first fe fe-settings fe-12"></i>
                             <div>Settings</div>
                             <span

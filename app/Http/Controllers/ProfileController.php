@@ -33,9 +33,7 @@ class ProfileController extends Controller
     }
     public function index()
     {
-        $getId             = Auth::user()->id;
         $data['user']      = Auth::user(); 
-        // $user['user'] = Auth::user();
         return view('pages.user.profile_dashboard', $data);
     }
 

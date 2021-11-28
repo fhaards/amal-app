@@ -6,8 +6,8 @@
         <h5 class=" font-semibold mb-5">
             Tabel Transaksi
         </h5>
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div class="inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="overflow-x-auto sm:-mx-6">
+            <div class="inline-block min-w-full sm:px-6">
                 <div class="overflow-hidden sm:rounded-xl shadow-sm">
 
                     @if ($transaction->isEmpty())
@@ -20,7 +20,7 @@
                             </span>
                         </div>
                     @else
-                        <table class="min-w-full w-100 h-100 table-list border" id="table-trans">
+                        <table class="max-w-100 w-100 h-100 table-list border" id="table-trans">
                             <thead class="rounded-t-xl bg-gray-100">
                                 <tr class="">
                                     <th scope="col"

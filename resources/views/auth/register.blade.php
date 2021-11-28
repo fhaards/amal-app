@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="w-full bg-white lg:w-6/12 xl:w-5/12">
-                    <div class="flex flex-col items-start justify-start w-full h-full p-5 lg:p-8">
+                    <div class="flex flex-col items-end items-start justify-start w-100 h-full p-5   lg:p-8">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <h4 class="w-full text-3xl font-bold">Signup</h4>

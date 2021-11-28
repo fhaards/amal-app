@@ -15,7 +15,7 @@
                         <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Kekayaan sejati
                             seseorang adalah kebaikan yang dilakukannya di dunia ini.</p>
                         <div class="relative flex flex-col sm:flex-row sm:space-x-4">
-                            <a href="#_"
+                            <a href="{{ route('beramal') }}"
                                 class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-400 sm:mb-0 hover:bg-green-500 sm:w-auto rounded-3xl">
                                 Mulai Beramal
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"

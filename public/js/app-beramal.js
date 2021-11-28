@@ -64,7 +64,7 @@ function submitForm() {
         let i = 0;
         for (i; i < totalData; i++) {
             // var element = data[i];
-            selval += `<label class="mb-2 flex justify-start items-center text-truncate rounded-lg border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 pl-4 pr-6 py-3">`;
+            selval += `<label class="mb-2 flex max-w-32 items-center text-truncate rounded-lg border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 pl-4 pr-6 py-3">`;
             selval += `<div class="text-green-400 mr-3">`;
             selval +=
                 `     <input type="radio" onclick="paymentInformation(this.value)" id="paymethods" name="method_id" value="` +
@@ -74,11 +74,11 @@ function submitForm() {
             selval += `</div>`;
             selval +=
                 `<div class="select-none text-gray-700 font-bold text-md flex justify-between w-full items-center">
-                                <img class="max-h-8 ml-5" src="` +
+                                <img class="max-h-5 md:max-h-8 max-w-5 ml-5" src="` +
                 getImagesUrl +
                 payment.data[i].image +
                 `">
-                                <div class="w-1/2 text-right">` +
+                                <div class="w-1/2 hidden md:block text-right">` +
                 payment.data[i].payment_name +
                 `
                                 </div>`;
