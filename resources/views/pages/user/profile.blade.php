@@ -78,28 +78,28 @@
                     @endif
 
                     <div class="w-full sm:p-0 p-2 fixed bottom-0 left-0 sm:relative">
-                        <div class="flex flex-nowrap flex-row sm:flex-col bg-white rounded-lg border border-gray-200 sm:py-0 py-2">
+                        <div class="flex flex-nowrap max-w-full gap-2 sm:gap-0 overflow-x-auto flex-row sm:flex-col bg-white rounded-lg border border-gray-200 sm:py-0 py-2">
                             <a href="{{ route('transaction.index') }}" type="button"
-                                class="px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm  sm:border-b border-gray-200  w-full items-center">
+                                class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm  sm:border-b border-gray-200  items-center">
                                 <i class="text-green-400 sm:text-gray-800 order-first fe fe-dollar-sign sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Transaction</div>
                             </a>
-                            @if ($user->user_group == 'admin')
-                                <a href="{{ route('payment.index') }}" type="button"
-                                    class="px-4 py-2 flex gap-3 hover:bg-gray-100 text-gray-900 text-sm font-medium border-b border-gray-200  w-full items-center">
-                                    <i class="order-first fe fe-credit-card fe-12"></i>
-                                    <div>Payment Method</div>
-                                </a>
-                            @endif
                             <a href="{{ route('profile.index') }}" type="button"
-                                class="px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200  w-full sm:rounded-t-lg items-center">
+                                class="sm:w-full w-56 inline-flex px-4 py-2 flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
                                 <i class="text-green-400 sm:text-gray-800 order-first fe fe-user sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Profile</div>
                                 <span
                                     class="order-last fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>
                             </a>
+                            @if ($user->user_group == 'admin')
+                                <a href="{{ route('payment.index') }}" type="button"
+                                    class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                    <i class="text-green-400 sm:text-gray-800 order-first fe fe-credit-card sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                    <div class="font-semibold sm:text-gray-800 text-gray-600">Payment Method</div>
+                                </a>
+                            @endif
                             <a href="{{ route('profile.edit', $user->id) }}" type="button"
-                                class="px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm w-full sm:rounded-b-lg  items-center">
+                                class="sm:w-full w-56 inline-flex px-4 py-2  flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:rounded-b-lg  items-center">
                                 <i class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Settings</div>
                                 <span

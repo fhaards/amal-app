@@ -12,8 +12,13 @@ document.querySelectorAll("#table-trans tbody .detail-trans").forEach((e) =>
 async function loadTransaction(transUrl) {
     const respTrans = await fetch(transUrl);
     const dataTrans = await respTrans.json();
-
+    const getIds = dataTrans.data[0].id_transaction;
+    var transProof = dataTrans.data[0].proofment;
+    console.log(transProof);
     // Owner Information
+    modalTrans.querySelector(".detail-trans-id").innerHTML = getIds;
+    modalTrans.querySelector(".detail-trans-input-id").value = getIds;
+
     modalTrans.querySelector(".detail-owner-name").innerHTML =
         dataTrans.data[0].owner_name;
 
@@ -38,10 +43,21 @@ async function loadTransaction(transUrl) {
     modalTrans.querySelector(".detail-trans-status").innerHTML =
         `<span class="` +
         setStatusStyle +
-        `text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md">Status :  ` +
+        ` text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md">Status :  ` +
         setStatusText +
         `</span>`;
 
+    var formUpdateTrans = document.getElementById("update-transaction");
+    formUpdateTrans.setAttribute("action", APP_URL + "/transaction/" + getIds);
+
+    if (setStatusText != "Unpaid") {
+        formUpdateTrans.style.display = "none";
+    }
+
+    var imageProofment = document.getElementById("img-proofment");
+    if (transProof !== '') {
+        imageProofment.innerHTML = `<img class="w-32 rounded-lg" src="`+APP_URL + '/storage/transaction_proofment/' + transProof +`">`;
+    }
 }
 
 // looping through table row

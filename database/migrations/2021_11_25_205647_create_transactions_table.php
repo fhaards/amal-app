@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('method_id');
             $table->string('aliases')->nullable();
             $table->bigInteger('amount')->nullable();
+            $table->text('proofment')->nullable();
             $table->string('status', 15)->nullable();
             $table->timestamps();
         });

@@ -3,7 +3,7 @@ var currency = "IDR"; // https://www.currency-iso.org/dam/downloads/lists/list_o
 var formBeramalId = document.getElementById("form-beramal");
 var formBeramal = document.querySelector("#form-beramal");
 const submitBeramal = formBeramal.querySelector(".submitForm");
-submitBeramal.disabled = true;
+
 
 // step 1
 var aliases = formBeramal.querySelector(".aliases");
@@ -48,6 +48,7 @@ function onBlur(e) {
             ? localStringToNumber(value).toLocaleString(undefined, options)
             : "";
 }
+
 
 submitForm();
 formSummary();
@@ -152,18 +153,15 @@ function formSummary() {
     // detailPayment.innerHTML = val;
 }
 
-inputHandling();
-function inputHandling() {
-    var sendAliases1 = formBeramal.querySelector(".aliases").value;
-    var sendAmount = formBeramal.querySelector(".amount").value;
-    // var payMethod = formBeramal.querySelector(".payments-methods").value;
-
-    if (sendAliases1 == null && sendAmount == null) {
-        submitBeramal.disabled = false;
-    } else {
-        submitBeramal.disabled = true;
-    }
-}
+// function inputHandling() {
+//     var sendAliases1 = formBeramal.querySelector(".aliases").value;
+//     var sendAmount   = formBeramal.querySelector(".amount").value;
+//     if (sendAliases1 == null && sendAmount == null) {
+//         submitBeramal.disabled = false;
+//     } else {
+//         submitBeramal.disabled = true;
+//     }
+// }
 
 function app() {
     return {

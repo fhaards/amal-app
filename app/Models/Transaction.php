@@ -19,6 +19,7 @@ class Transaction extends Model
         'user_id',
         'aliases',
         'ammount',
+        'proofment',
         'status',
     ];
 

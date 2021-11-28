@@ -121,6 +121,7 @@ class TransactionController extends Controller
                 'amount',
                 'trans.created_at as created_trans',
                 'status',
+                'proofment',
                 'users.name as owner_name',
                 'users.user_phone as owner_phone',
                 'users.user_address as owner_address'
@@ -134,7 +135,7 @@ class TransactionController extends Controller
             $status = $k->status;
             if ($status == 'Unpaid') :
                 $style = "bg-yellow-100 text-yellow-800";
-            elseif ($status == 'Paid/ Waiting') :
+            elseif ($status == 'Paid / Waiting') :
                 $style = 'bg-blue-100 text-blue-800';
             elseif ($status == 'Complete') :
                 $style = 'bg-green-100 text-green-800';
@@ -142,12 +143,14 @@ class TransactionController extends Controller
             endif;
 
             $data[] = [
+                'id_transaction' => $k->id_transaction,
                 'owner_name' => $k->owner_name,
                 'owner_phone' => $k->owner_phone,
                 'owner_address' => $k->owner_address,
                 'aliases' => $k->aliases,
                 'amount' => (string)'Rp ' . number_format($k->amount),
                 'created' => date('D, m/Y - H:i', strtotime($k->created_trans)),
+                'proofment' => $k->proofment,
                 'status' => $k->status,
                 'status_style' => $style
             ];
@@ -167,7 +170,41 @@ class TransactionController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $file = $request->file('file');
+        $input = [
+            'file'  => $file,
+        ];
+
+        $rules = [
+            'file'  => 'required|mimes:jpeg,jpg,png',
+        ];
+
+        $messages = [
+            'file.mimes' => 'Not Supported Format, Use JPG,JPEG,PNG',
+        ];
+
+        $validator = Validator::make($input, $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->route('transaction.index')->withErrors($messages);
+        } else {
+
+            // File Named
+            $fileNames  = $id . '.' . $file->getClientOriginalExtension();
+
+            // Update to Database
+            $transc = transc::find($id);
+            $transc->proofment = $fileNames;
+            $transc->status = 'Paid / Waiting';
+            $transc->save();
+
+            if ($transc) {
+                $request->file('file')->storeAs('public/transaction_proofment', $fileNames);
+                return redirect()->route('transaction.index')->with('success', 'Update Successfully!');
+            } else {
+                return redirect()->route('transaction.index')->with('error', 'Something Wrong in System');
+            }
+        }
     }
 
     /**
