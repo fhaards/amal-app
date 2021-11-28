@@ -108,7 +108,7 @@ function submitForm() {
     });
 
     async function storeAmal(objAmal) {
-        let tokens = document
+        var token = document
             .querySelector('meta[name="csrf-token"]')
             .getAttribute("content");
 
@@ -117,7 +117,7 @@ function submitForm() {
             body: JSON.stringify(objAmal),
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRF-TOKEN": tokens,
+                "X-CSRF-TOKEN": token,
             },
         });
         const responsejson = await response.json();

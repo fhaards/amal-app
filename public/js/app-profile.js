@@ -2,23 +2,19 @@ var profilePages = document.querySelector("#profile-pages");
 var totalAmal = profilePages.querySelector(".total-amal");
 
 async function loadTotalAmal() {
-    let tokens = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-    const response = await fetch("api/count/count-amal", {
+    var token = document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content");
+    const responetotal = await fetch("api/count/count-amal", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "X-CSRF-TOKEN": tokens,
+            "X-CSRF-TOKEN": token,
         },
     });
-    const responsejson = await response.json();
-    console.log(responsejson);
+
+    var getTotalAmal = await responetotal.json();
+    totalAmal.innerHTML = getTotalAmal;
 }
+
 loadTotalAmal();
-
-// async function loadNames() {
-//     const response = await fetch("api/count/count-amal");
-//     const rs = await response.json();
-//     console.log(rs);
-// }
-
-// loadNames();

@@ -18,10 +18,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class TransactionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
@@ -71,44 +71,59 @@ class TransactionController extends Controller
         return response()->json($transc, 200);
     }
 
-    public function countAmal()
-    {
-        // $totalData = 0;
-        // $paym      = null;
-        // $data      = [];
-
-        // $getId  = Auth::user()->id;
-        // $transc = transc::all();
-        // $transc = DB::table('transactions')
-        //           ->select('amount,user_id')
-        //           ->where('user_id','2');
-        
-        // if ($transc->count() > 0) {
-        //     foreach ($transc as $transcdt) :
-        //         $data[] = [ 'amount'  => $transcdt->amount ];
-        //     endforeach;
-        //     $totalData = $transc->count();
-        // }
-
-        // $response = array(
-        //     'total' => $totalData,
-        //     'data'  => $data
-        // );
-
-
-
-        // $counts = transc::where('user_id', $getId)->first();
-        $counts = transc::all();
-        return response()->json($counts, 200);
-    }
     public function show($id)
     {
-        //
+        $data = [];
+        $transc = DB::table('transactions as trans')
+            ->leftJoin('users as users', 'trans.user_id', 'users.id')
+            ->select(
+                'id_transaction',
+                'aliases',
+                'amount',
+                'trans.created_at as created_trans',
+                'status',
+                'users.name as owner_name',
+                'users.user_phone as owner_phone',
+                'users.user_address as owner_address'
+            );
+
+        $transc = $transc->where('id_transaction', $id);
+        $transc = $transc->get();
+
+        foreach ($transc as $k) {
+
+            $status = $k->status;
+            if ($status == 'Unpaid') :
+                $style = "bg-yellow-100 text-yellow-800";
+            elseif ($status == 'Paid/ Waiting') :
+                $style = 'bg-blue-100 text-blue-800';
+            elseif ($status == 'Complete') :
+                $style = 'bg-green-100 text-green-800';
+            else :
+            endif;
+
+            $data[] = [
+                'owner_name' => $k->owner_name,
+                'owner_phone' => $k->owner_phone,
+                'owner_address' => $k->owner_address,
+                'aliases' => $k->aliases,
+                'amount' => (string)'Rp ' . number_format($k->amount),
+                'created' => date('D, m/Y - H:i', strtotime($k->created_trans)),
+                'status' => $k->status,
+                'status_style' => $style
+            ];
+        }
+        $response = array(
+            'data' => $data
+        );
+
+        return response()->json($response, 200);
     }
 
     public function edit($id)
     {
-        //
+        $transc = transc::find($id);
+        return response()->json($transc, 200);
     }
 
     public function update(Request $request, $id)
@@ -126,19 +141,4 @@ class TransactionController extends Controller
     {
         //
     }
-
-    // public function beramalInsert(Request $request)
-    // {
-    //     $data = [];
-    //     $getAmount  = $request->input('amount');
-    //     $getAmount1 = str_replace('.', '', $getAmount);
-    //     $getAmount2 = preg_replace('~[\\\\/:*?"<>|]~', '', $getAmount1);
-    //     $getAmount3 = str_replace("Rp ", '',  $getAmount2);
-    //     $getAmount4 = substr($getAmount3, 4);
-    //     $getAmountFix = (int)$getAmount4;
-    //     $data = [
-    //         'aliases' => $request->input('aliases'),
-    //         'amount' => $getAmountFix
-    //     ];
-    // }
 }

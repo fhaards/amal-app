@@ -69,7 +69,7 @@
                     {{-- <form method="POST" action="{{ route('beramal-insert') }}" id="#form-beramal"> --}}
                     <div x-data="app()" x-cloak>
                         <div class="max-w-3xl mx-auto p-10" id="form-beramal">
-                            @csrf;
+                            @csrf
                             <input type="hidden" class="user_id" name="user_id" value="{{ $user->id }}">
                             <div x-show.transition="step === 'complete'">
                                 <div class="p-10 flex items-center justify-between">
