@@ -44,6 +44,16 @@ Route::group(['middleware' => 'auth'], function () {
     | Transaction
     |--------------------------------------------------------------------------*/
     Route::resource('transaction', TransactionController::class);
+    Route::put('transaction/{transaction}/changeToComplete', [App\Http\Controllers\TransactionController::class, 'changeToComplete']);
+
+    /*--------------------------------------------------------------------------
+    | Beramal
+    |--------------------------------------------------------------------------*/
     Route::get('beramal/', [App\Http\Controllers\TransactionController::class, 'beramalForm'])->name('beramal');
     Route::post('beramal/insert', [App\Http\Controllers\TransactionController::class, 'beramalInsert'])->name('beramal-insert');
+
+    /* --------------------------------------------------------------------------
+    | Counting
+    |-------------------------------------------------------------------------- */
+    Route::get('count/count-amal', [App\Http\Controllers\CountCountroller::class, 'countAmal']);
 });

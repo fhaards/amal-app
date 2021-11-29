@@ -44,12 +44,12 @@
                                 </div>
                             @endforeach
                         @endif
-                        <table class="max-w-100 w-100 h-100 table-list border" id="table-trans">
+                        <table class="max-w-full w-full h-100 table-list border" id="table-trans">
                             <thead class="rounded-t-xl bg-gray-100">
                                 <tr class="">
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Transaction Id
+                                        id / No
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
@@ -77,6 +77,7 @@
                                 @foreach ($transaction as $ts)
                                     @csrf
                                     @php
+                                        $idtrans = $ts->id_transaction;
                                         $no++;
                                         $statusPaid = $ts->status;
                                         if ($statusPaid == 'Unpaid'):
@@ -92,14 +93,14 @@
                                     <tr class="bg-white mt-5 border-b w-full hover:bg-gray-50" href="#">
                                         <td
                                             class="spaceUnder w-16 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            <a href="javascript:void(0)" thisid="{{ $ts->id_transaction }}"
+                                            <a href="javascript:void(0)" thisid="{{ $idtrans }}"
                                                 data-modal-toggle="detail-trans-modal"
                                                 class="detail-trans text-xs text-blue-600 hover:text-blue-800 uppercase font-semibold tracking-wide">
-                                                {{ $ts->id_transaction }}
+                                                {{ substr($idtrans, 0, 8) . ' ...' }}
                                             </a>
                                         </td>
                                         <td class=" spaceUnder text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
-                                            {{ $ts->aliases }}
+                                            {{ Str::length($ts->aliases) > 10 ? substr($ts->aliases, 0, 10) . ' ...' : $ts->aliases }}
                                         </td>
                                         <td class="spaceUnder text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
                                             Rp {{ number_format($ts->amount) }}
@@ -113,7 +114,19 @@
                                                 {{ $ts->status }}
                                             </span>
                                         </td>
-                                        <td></td>
+                                        <td>
+                                            @if ($user->user_group === 'admin')
+                                                @if ($ts->status === 'Paid / Waiting')
+                                                    <button type="button" data-modal-toggle="change-status-trans-modal"
+                                                        getIds="{{ $idtrans }}"
+                                                        class="changestatus-trans inline-flex p-2 text-white bg-green-400 rounded-lg hover:bg-green-500">
+                                                        <i class="fe fe-refresh-cw fe-12"></i>
+                                                    </button>
+                                                @else
+                                                @endif
+                                            @else
+                                            @endif
+                                        </td>
                                     </tr>
 
                                 @endforeach
@@ -130,10 +143,17 @@
     </div>
 @endsection
 
+
 @push('modals')
     @include('pages/transaction/detail_transaction')
+    @if (Auth::user()->user_group == 'admin')
+        @include('pages/transaction/change_status')
+    @endif
 @endpush
 
 @push('js-pages')
     <script src="{{ asset('js/app-transaction.js') }}"></script>
+    @if (Auth::user()->user_group == 'admin')
+        <script src="{{ asset('js/app-change-status-trans.js') }}"></script>
+    @endif
 @endpush

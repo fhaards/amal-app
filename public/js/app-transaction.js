@@ -2,7 +2,8 @@
 var modalTrans = document.querySelector("#detail-trans-modal");
 
 document.querySelectorAll("#table-trans tbody .detail-trans").forEach((e) =>
-    e.addEventListener("click", function () {
+    e.addEventListener("click", function (b) {
+        b.preventDefault();
         var getId = this.getAttribute("thisid");
         var transUrl = APP_URL + "/api/transaction/" + getId;
         loadTransaction(transUrl);
@@ -14,7 +15,7 @@ async function loadTransaction(transUrl) {
     const dataTrans = await respTrans.json();
     const getIds = dataTrans.data[0].id_transaction;
     var transProof = dataTrans.data[0].proofment;
-    console.log(transProof);
+    // console.log(transProof);
     // Owner Information
     modalTrans.querySelector(".detail-trans-id").innerHTML = getIds;
     modalTrans.querySelector(".detail-trans-input-id").value = getIds;
@@ -47,16 +48,19 @@ async function loadTransaction(transUrl) {
         setStatusText +
         `</span>`;
 
-    var formUpdateTrans = document.getElementById("update-transaction");
+    var formUpdateTrans     = document.getElementById("update-transaction");
+    var imageProofmentElem  = document.querySelector("#img-proofment");
+    var imageProofmentFile  = imageProofmentElem.querySelector(".img-proofment-file");
     formUpdateTrans.setAttribute("action", APP_URL + "/transaction/" + getIds);
 
-    if (setStatusText != "Unpaid") {
-        formUpdateTrans.style.display = "none";
-    }
-
-    var imageProofment = document.getElementById("img-proofment");
-    if (transProof !== '') {
-        imageProofment.innerHTML = `<img class="w-32 rounded-lg" src="`+APP_URL + '/storage/transaction_proofment/' + transProof +`">`;
+    if (setStatusText != "Unpaid") { //IF not unpaid status
+        formUpdateTrans.classList.add("hidden");
+        imageProofmentElem .classList.remove("hidden");
+        imageProofmentFile.innerHTML = `<img class="w-32 rounded-lg" src="`+APP_URL + '/storage/transaction_proofment/' + transProof +`">`;
+    } else { //If this status is unpaid
+        formUpdateTrans.classList.remove("hidden");
+        imageProofmentElem.classList.add("hidden");
+        imageProofmentFile.innerHTML = '';
     }
 }
 

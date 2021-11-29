@@ -75,3 +75,7 @@
     background-repeat: no-repeat;
 }
 
+.modal{
+    transition: 5s;
+}
+

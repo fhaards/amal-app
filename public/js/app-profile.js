@@ -6,7 +6,7 @@ async function loadTotalAmal() {
         .querySelector('meta[name="csrf-token"]')
         .getAttribute("content");
 
-    const responetotal = await fetch(APP_URL + "/api/count/count-amal", {
+    const responetotal = await fetch(APP_URL + "/count/count-amal", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -15,6 +15,7 @@ async function loadTotalAmal() {
     });
 
     var getTotalAmal = await responetotal.json();
+    console.log(getTotalAmal);
     totalAmal.innerHTML = getTotalAmal;
 }
 

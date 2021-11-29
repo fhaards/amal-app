@@ -1,5 +1,5 @@
 <div id="detail-trans-modal" aria-hidden="true"
-    class=" hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-10 left-0 right-0 md:inset-0 z-50 justify-center md:items-center items-end">
+    class="modal hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-10 left-0 right-0 md:inset-0 z-50 justify-center md:items-center items-end">
     <div class="relative w-full max-w-3xl md:px-4 h-100 md:h-auto ">
         <!-- Modal content -->
         <div class=" bg-white md:rounded-lg shadow relative"
@@ -52,21 +52,31 @@
                         <div class="detail-trans-created py-0"></div>
                     </div>
                 </div>
+
+
                 <div class="upload-proofment owner-info rounded-lg py-3 px-5 flex flex-col border">
                     <form method="POST" id="update-transaction" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="id_transaction" class="detail-trans-input-id">
-                        <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="photo">
-                            Upload Bukti Pembayaran
-                        </label>
-                        <input
-                            class="@error('file') is-invalid @enderror block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg"
-                            aria-describedby="user_avatar_help" id="user_avatar" name="file" type="file">
-                        @include('components/save-button')
+                        @if ($user->user_group == 'user')
+                            <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2"
+                                for="photo">
+                                Upload Bukti Pembayaran
+                            </label>
+                            <input
+                                class="@error('file') is-invalid @enderror block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg"
+                                aria-describedby="user_avatar_help" id="user_avatar" name="file" type="file">
+                            @include('components/save-button')
+                        @endif
                     </form>
-                    <div class="" id="img-proofment"></div>
+                    <div class="flex flex-col sm:flex-row sm:flex-between gap-3" id="img-proofment">
+                        <div class="font-semibold md:w-48 pb-0">Transfer Proofment</div>
+                        <div class="img-proofment-file"></div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>

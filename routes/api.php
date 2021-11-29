@@ -36,8 +36,4 @@ Route::get('payments/getall', [App\Http\Controllers\PaymentMethodsController::cl
 
 Route::resource('transaction', TransactionController::class);
 
-/* --------------------------------------------------------------------------
-| Counting
-|-------------------------------------------------------------------------- */
 
-Route::get('count/count-amal', [App\Http\Controllers\CountCountroller::class, 'countAmal']);

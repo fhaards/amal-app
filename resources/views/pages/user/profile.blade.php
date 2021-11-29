@@ -21,14 +21,15 @@
 
                         <div
                             class="h-24 relative flex justify-center rounded-t-lg bg-gradient-to-r from-green-400 to-green-200">
-                            <div class="border-solid border-4 border-white rounded-full w-32 h-32 absolute mt-8 bg-red-200">
-                                @if ($user->user_photo == null)
-                                    @php $userphoto = 'user-default.png'; @endphp
+                            <div
+                                class="border-solid border-4 border-white rounded-full w-32 h-32 absolute mt-8 bg-white flex items-center justify-center">
+                                @if ($user->user_photo != null)
+                                    <img class="rounded-full items-center w-full h-full object-cover"
+                                        src="{{ asset("storage/user/avatars/$user->user_photo") }}" alt="" />
                                 @else
-                                    @php $userphoto = $user->user_photo; @endphp
+                                    <span class="text-gray-400 text-xs tracking-widest">NO PICT</span>
                                 @endif
-                                <img class="rounded-full items-center w-full h-full object-cover"
-                                    src="{{ asset("storage/user/avatars/$userphoto") }}" alt="" />
+
                             </div>
 
                         </div>
@@ -51,7 +52,7 @@
                                             clip-rule="evenodd"></path>
                                     </svg>
                                     <span class="text-xs text-gray-500 font-semibold"> Join At :
-                                        {{ date_format($user->created_at, 'D, m/Y') }} </span>
+                                        {{ date('D, m/Y', strtotime($user->created_at)) }} </span>
                                 </span>
                             </div>
                             <div class="md:hidden pt-2 pb-1 mt-2 mb-1 border-t">
@@ -67,26 +68,27 @@
                             </div>
                         </div>
                     </div>
-
-                    @if ($user->user_group == 'user')
-                        <div class="bg-white shadow-sm border border-gray-200 rounded-lg p-4">
-                            <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-1" for="name">
-                                Total
-                            </label>
-                            <span class="total-amal text-sm text-gray-600 font-bold"> </span>
-                        </div>
-                    @endif
+                    
+                    <div class="bg-white shadow-sm border border-gray-200 rounded-lg p-4">
+                        <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-1" for="name">
+                            Total
+                        </label>
+                        <span class="total-amal text-sm text-gray-600 font-bold"> </span>
+                    </div>
 
                     <div class="w-full sm:p-0 p-2 fixed bottom-0 left-0 sm:relative">
-                        <div class="flex flex-nowrap max-w-full gap-2 sm:gap-0 overflow-x-auto flex-row sm:flex-col bg-white rounded-lg border border-gray-200 sm:py-0 py-2">
+                        <div
+                            class="flex flex-nowrap max-w-full gap-2 sm:gap-0 overflow-x-auto flex-row sm:flex-col bg-white rounded-lg border border-gray-200 sm:py-0 py-2">
                             <a href="{{ route('transaction.index') }}" type="button"
                                 class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm  sm:border-b border-gray-200  items-center">
-                                <i class="text-green-400 sm:text-gray-800 order-first fe fe-dollar-sign sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                <i
+                                    class="text-green-400 sm:text-gray-800 order-first fe fe-dollar-sign sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Transaction</div>
                             </a>
                             <a href="{{ route('profile.index') }}" type="button"
                                 class="sm:w-full w-56 inline-flex px-4 py-2 flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
-                                <i class="text-green-400 sm:text-gray-800 order-first fe fe-user sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                <i
+                                    class="text-green-400 sm:text-gray-800 order-first fe fe-user sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Profile</div>
                                 <span
                                     class="order-last fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>
@@ -94,13 +96,16 @@
                             @if ($user->user_group == 'admin')
                                 <a href="{{ route('payment.index') }}" type="button"
                                     class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
-                                    <i class="text-green-400 sm:text-gray-800 order-first fe fe-credit-card sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                    <i
+                                        class="text-green-400 sm:text-gray-800 order-first fe fe-credit-card sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                     <div class="font-semibold sm:text-gray-800 text-gray-600">Payment Method</div>
                                 </a>
                             @endif
+
                             <a href="{{ route('profile.edit', $user->id) }}" type="button"
                                 class="sm:w-full w-56 inline-flex px-4 py-2  flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:rounded-b-lg  items-center">
-                                <i class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                <i
+                                    class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Settings</div>
                                 <span
                                     class="fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>

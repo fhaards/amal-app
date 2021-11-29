@@ -90,11 +90,11 @@ class TransactionController extends Controller
             return redirect()->route('payment.index')->withErrors($messages);
         } else {
             //Config
-            $getAmount1 = str_replace('.', '', $getAmount);
-            $getAmount2 = preg_replace('~[\\\\/:*?"<>|]~', '', $getAmount1);
-            $getAmount3 = str_replace("Rp ", '',  $getAmount2);
-            $getAmount4 = substr($getAmount3, 4);
-            $getAmountFix = (int)$getAmount4;
+            // $getAmount1 = str_replace('.', '', $getAmount);
+            // $getAmount2 = preg_replace('~[\\\\/:*?"<>|]~', '', $getAmount1);
+            // $getAmount3 = str_replace("Rp ", '',  $getAmount2);
+            // $getAmount4 = substr($getAmount3, 4);
+            $getAmountFix = (int)$getAmount;
             $genIdTransc = (string) Str::orderedUuid();
 
             //Storing
@@ -213,6 +213,18 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function changeToComplete($id){
+        $transc = transc::find($id);
+        $transc->status = 'Complete';
+        $transc->save();
+        if ($transc) {
+            return redirect()->route('transaction.index')->with('success', 'Update Successfully!');
+        } else {
+            return redirect()->route('transaction.index')->with('error', 'Something Wrong in System');
+        }
+    }
+
     public function destroy($id)
     {
         //

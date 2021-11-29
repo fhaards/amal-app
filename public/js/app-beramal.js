@@ -4,10 +4,10 @@ var formBeramalId = document.getElementById("form-beramal");
 var formBeramal = document.querySelector("#form-beramal");
 const submitBeramal = formBeramal.querySelector(".submitForm");
 
-
 // step 1
 var aliases = formBeramal.querySelector(".aliases");
-var amount = formBeramal.querySelector(".amount");
+var amount  = formBeramal.querySelector(".amount");
+
 var detailAliases = document.getElementById("detail-aliases");
 var detailAmounts = document.getElementById("detail-amount");
 var detailPayment = document.getElementById("detail-payment");
@@ -48,7 +48,6 @@ function onBlur(e) {
             ? localStringToNumber(value).toLocaleString(undefined, options)
             : "";
 }
-
 
 submitForm();
 formSummary();
@@ -96,14 +95,19 @@ function submitForm() {
     submitBeramal.addEventListener("click", function (event) {
         event.preventDefault;
         var sendAliases = formBeramal.querySelector(".aliases").value;
-        var sendAmount = formBeramal.querySelector(".amount").value;
-        var payMethod = formBeramal.querySelector(".payments-methods").value;
-        var userId = formBeramal.querySelector(".user_id").value;
+        var sendAmount  = formBeramal.querySelector(".amount").value;
+
+        // Cut the string 
+        var sendAmount2 = sendAmount.replace(/,/gi, "");
+        var sendAmount3 = sendAmount2.slice(4);
+
+        var payMethod   = formBeramal.querySelector(".payments-methods").value;
+        var userId      = formBeramal.querySelector(".user_id").value;
 
         const objAmal = {
             user_id: userId,
             aliases: sendAliases,
-            amount: sendAmount,
+            amount: sendAmount3,
             method_id: payMethod,
         };
         storeAmal(objAmal);
@@ -153,6 +157,14 @@ function formSummary() {
     // detailPayment.innerHTML = val;
 }
 
+function app() {
+    return {
+        step: 1,
+        payment: "",
+        complete: "",
+    };
+}
+
 // function inputHandling() {
 //     var sendAliases1 = formBeramal.querySelector(".aliases").value;
 //     var sendAmount   = formBeramal.querySelector(".amount").value;
@@ -163,13 +175,6 @@ function formSummary() {
 //     }
 // }
 
-function app() {
-    return {
-        step: 1,
-        payment: "",
-        complete: "",
-    };
-}
 
 // let dataJson = {};
 // async function loadPaymentInformation(dataJson) {

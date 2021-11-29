@@ -74,12 +74,15 @@
                         @endif
 
                     @else
-                        <li>
-                            <a class="{{ Auth::user()->user_group == 'admin' ? 'hidden' : '' }} font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
-                                href="{{ route('beramal') }}">
-                                Beramal
-                            </a>
-                        </li>
+                        @if (Auth::user()->user_group == 'user')
+                            <li class="">
+                                <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                    href="{{ route('beramal') }}">
+                                    Beramal
+                                </a>
+                            </li>
+                        @endif
+
                         <li class="w-full">
                             <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
                                 class="md:w-auto w-full items-center spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
@@ -89,8 +92,9 @@
                             </button>
 
                             <!-- Dropdown menu -->
-                            <ul id="dropdownDivider"  class="hidden text-base z-10 list-none divide-y divide-gray-100">
-                                <ul class="bg-white sm:w-44 px-5 md:px-0 rounded shadow" aria-labelledby="dropdownDividerButton">
+                            <ul id="dropdownDivider" class="hidden text-base z-10 list-none divide-y divide-gray-100">
+                                <ul class="bg-white sm:w-44 px-5 md:px-0 rounded shadow"
+                                    aria-labelledby="dropdownDividerButton">
                                     <li>
                                         <a href="{{ route('profile.index') }}"
                                             class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
