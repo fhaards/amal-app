@@ -16,17 +16,24 @@
                 </button>
             </div>
             <div class="flex flex-wrap px-5 py-3 w-full border-b justify-between items-center">
-                <div
-                    class="flex flex-col sm:gap-3 sm:flex-row text-md text-xs lg:text-md font-semibold text-gray-600 sm:mb-0 mb-4">
+                <div class="flex flex-col sm:gap-3 sm:flex-row text-md text-xs lg:text-md font-semibold text-gray-600 sm:mb-0 mb-4">
                     <span>ID :</span>
                     <span class="detail-trans-id py-0 uppercase tracking-widest text-blue-600"></span>
                 </div>
-                <div class="detail-trans-status text-right"></div>
+                <div class="flex">
+                    <div class="">
+                        <a id="print-trans" target="_blank" class="hidden bg-gray-100 text-gray-800 hover:bg-gray-200 mr-2 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md">
+                            <i class="fe fe-printer fe-4"></i>
+                            Print
+                        </a>
+                    </div>
+                    <div class="detail-trans-status text-right"></div>
+                </div>
             </div>
             <div class="p-6 space-y-6 overflow-y-auto max-h-96">
                 <div class="owner-info rounded-lg py-3 px-5 flex flex-col border">
                     <div class="flex flex-col md:flex-row gap-3 py-2 border-b">
-                        <div class="font-semibold md:w-48 pb-0">Nama</div>
+                        <div class="font-semibold md:w-48 pb-0">Nama Akun</div>
                         <div class="detail-owner-name py-0"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-3 py-2 border-b">
@@ -40,7 +47,7 @@
                 </div>
                 <div class="owner-info rounded-lg py-3 px-5 flex flex-col border">
                     <div class="flex flex-col md:flex-row gap-3 py-2 border-b">
-                        <div class="font-semibold  md:w-48 pb-0">Nama Lain </div>
+                        <div class="font-semibold  md:w-48 pb-0">Nama Sebagai </div>
                         <div class="detail-trans-aliases py-0"></div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-3 py-2 border-b">

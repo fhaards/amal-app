@@ -51,13 +51,17 @@ async function loadTransaction(transUrl) {
     var formUpdateTrans     = document.getElementById("update-transaction");
     var imageProofmentElem  = document.querySelector("#img-proofment");
     var imageProofmentFile  = imageProofmentElem.querySelector(".img-proofment-file");
+    var printButton         = document.querySelector("#print-trans");
     formUpdateTrans.setAttribute("action", APP_URL + "/transaction/" + getIds);
-
+    printButton.setAttribute("href",APP_URL + "/transaction/" + getIds + "/print-invoice");
+    
     if (setStatusText != "Unpaid") { //IF not unpaid status
+        printButton.classList.remove("hidden");
         formUpdateTrans.classList.add("hidden");
         imageProofmentElem .classList.remove("hidden");
         imageProofmentFile.innerHTML = `<img class="w-32 rounded-lg" src="`+APP_URL + '/storage/transaction_proofment/' + transProof +`">`;
     } else { //If this status is unpaid
+        printButton.classList.add("hidden");
         formUpdateTrans.classList.remove("hidden");
         imageProofmentElem.classList.add("hidden");
         imageProofmentFile.innerHTML = '';

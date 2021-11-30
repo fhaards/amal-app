@@ -34,7 +34,7 @@ for (let i = 0; i < changeStatusTrans.length; i++) {
                 `</span>`;
 
             var formUpdateTransForChange     = document.getElementById("update-transaction-change");
-            formUpdateTransForChange.setAttribute("action", APP_URL + "/transaction/" + getIds + "/changeToComplete");
+            formUpdateTransForChange.setAttribute("action", APP_URL + "/transaction/" + getIds + "/change-to-complete");
         }
     })();
 }

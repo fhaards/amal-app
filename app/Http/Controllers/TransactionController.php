@@ -15,6 +15,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -214,7 +215,8 @@ class TransactionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function changeToComplete($id){
+    public function changeToComplete($id)
+    {
         $transc = transc::find($id);
         $transc->status = 'Complete';
         $transc->save();
@@ -225,6 +227,29 @@ class TransactionController extends Controller
         }
     }
 
+    public function printInvoice($id)
+    {
+        // $transc = transc::find($id);
+        $data = [];
+        $transc = DB::table('transactions as trans')
+            ->leftJoin('users as users', 'trans.user_id', 'users.id')
+            ->select(
+                'id_transaction',
+                'aliases',
+                'amount',
+                'trans.created_at as created_trans',
+                'status',
+                'proofment',
+                'users.name as owner_name',
+                'users.user_phone as owner_phone',
+                'users.user_address as owner_address'
+            );
+
+        $transc = $transc->where('id_transaction', $id);
+        $getData['data'] = $transc->get();
+        $pdf = PDF::loadview('pages/transaction/print_invoice', $getData);
+        return $pdf->stream('invoice-amal-' . $id . '.pdf');
+    }
     public function destroy($id)
     {
         //

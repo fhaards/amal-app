@@ -98,8 +98,14 @@ function submitForm() {
         var sendAmount  = formBeramal.querySelector(".amount").value;
 
         // Cut the string 
-        var sendAmount2 = sendAmount.replace(/,/gi, "");
-        var sendAmount3 = sendAmount2.slice(4);
+        let checkAmount = sendAmount.includes("Rp");
+        var sendAmount2 = sendAmount.replace(/[,.]/gi, "");
+
+        if(checkAmount === true) {
+            var sendAmount3 = sendAmount2.slice(3);
+        } else {
+            var sendAmount3 = sendAmount2.slice(4);
+        }
 
         var payMethod   = formBeramal.querySelector(".payments-methods").value;
         var userId      = formBeramal.querySelector(".user_id").value;

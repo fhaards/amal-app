@@ -44,7 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     | Transaction
     |--------------------------------------------------------------------------*/
     Route::resource('transaction', TransactionController::class);
-    Route::put('transaction/{transaction}/changeToComplete', [App\Http\Controllers\TransactionController::class, 'changeToComplete']);
+    Route::put('transaction/{transaction}/change-to-complete', [App\Http\Controllers\TransactionController::class, 'changeToComplete']);
+    Route::get('transaction/{transaction}/print-invoice', [App\Http\Controllers\TransactionController::class, 'printInvoice']);
 
     /*--------------------------------------------------------------------------
     | Beramal
