@@ -79,3 +79,7 @@
     transition: 5s;
 }
 
+/* CK EDITOR */
+.ck-editor__editable {
+    min-height: 150px;
+}

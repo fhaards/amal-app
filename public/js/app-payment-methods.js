@@ -2,8 +2,8 @@ const formeEditPayment = document.getElementById("edit-payment");
 var paymentEdit = document.querySelector("#edit-payment");
 var paymentName = paymentEdit.querySelector(".payment-name");
 var paymentCate = paymentEdit.querySelector(".payment-category");
-var paymentNote = paymentEdit.querySelector(".payment-notes");
 var submitEdit  = paymentEdit.querySelector(".submit");
+var editorNotes = document.getElementById("edit-payment-notes");
 
 document
     .querySelectorAll("#table-paymethod tbody .edit-paymethod")
@@ -18,7 +18,27 @@ document
                 const data = await response.json();
                 paymentName.value = data.payment_name;
                 paymentCate.value = data.category;
-                paymentNote.value = data.payment_notes;
+                // editorNotes.value = data.payment_notes;
+
+                // CKEDITOR.instances['payment_notes'].setData('aaa');
+                CKEDITOR.replace(editorNotes);
+                // CKEDITOR.config.allowedContent = true;
+
+                
+                // var editor = CKEDITOR.instances['payment_notes'];
+                // editor.insertText(data.payment_notes);
+                // editor.getData();
+
+                // CKEDITOR.instances.editorNotes.setData(data.payment_notes);
+
+                //CKEDITOR ON EDIT
+                // ClassicEditor.create(document.querySelector("#edit-notes"))
+                //     .then((editor) => {
+                //         editor.setData(data.payment_notes);
+                //     })
+                //     .catch((error) => {
+                //         console.error(error);
+                //     });
             }
 
             loadNames();

@@ -1,6 +1,6 @@
 <div id="edit-payment-modal" aria-hidden="true"
     class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-    <div class="relative w-full max-w-xl px-4 h-full md:h-auto">
+    <div class="relative w-full max-w-3xl px-4 h-full md:h-auto">
         <!-- Modal content -->
         <div class="bg-white rounded-lg shadow relative">
             <!-- Modal header -->
@@ -39,28 +39,34 @@
                             </div>
                         @endforeach
                     @endif
-
-
                     @csrf
                     @method('PUT')
-                    <div class="mb-6">
-                        <input type="text" id="Name" name="payment_name"
-                            class="payment-name font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            placeholder="Payment Method Name" value="" required>
+                    <div class="flex mb-6 w-full gap-2 sm:flex-row flex-col">
+                        <div class="sm:w-1/2 mb-4 space-y-1">
+                            <label class="text-gray-500 font-bold" for="name">Nama Metode</label>
+                            <input type="text" id="Name" name="payment_name"
+                                class="payment-name font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                placeholder="Payment Method Name" value="" required>
+                        </div>
+                        <div class="sm:w-1/2 mb-4 space-y-1">
+                            <label class="text-gray-500 font-bold" for="category">Kategori</label>
+                            <select name="category"
+                                class="payment-category font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                required>
+                                <option value="Transfer Bank">Transfer Bank</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-6">
-                        <select name="category"
-                            class="payment-category font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            required>
-                            <option value="Transfer Bank">Transfer Bank</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
+                    <div class="mb-6 space-y-2">
+                        <label class="text-gray-500 font-bold" for="payment_notes">Catatan Pembayaran</label>
+                        <textarea name="payment_notes" id="edit-payment-notes" 
+                            class="edit-payment-notes font-semibold border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            required> 
+                        </textarea>
+                        <div id="trackingDiv" ></div>
                     </div>
-                    <div class="mb-6">
-                        <textarea name="payment_notes"
-                            class="payment-notes font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            required> Payment Notes</textarea>
-                    </div>
+
                     {{-- <div class="mb-6">
                         <input
                             class="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg

@@ -76,10 +76,10 @@
                                             {{ $paym->category }}
                                         </td>
                                         <td class="text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
-                                            {{ $paym->created_at }}
+                                            {{ date_format($paym->created_at, 'd/m/Y - H:i') }}
                                         </td>
                                         <td class="text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
-                                            {{ $paym->updated_at }}
+                                            {{ date_format($paym->updated_at, 'd/m/Y - H:i') }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

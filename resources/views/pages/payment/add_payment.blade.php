@@ -1,12 +1,12 @@
 <div id="add-payment-modal" aria-hidden="true"
     class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-    <div class="relative w-full max-w-xl px-4 h-full md:h-auto">
+    <div class="relative w-full max-w-3xl px-4 h-full md:h-auto">
         <!-- Modal content -->
         <div class="bg-white rounded-lg shadow relative">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-5 border-b rounded-t">
                 <h3 class="text-xl lg:text-2xl font-semibold">
-                    Add Payment Method
+                    Tambah Metode Pembayaran
                 </h3>
                 <button type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
@@ -16,7 +16,7 @@
             </div>
             <!-- Modal body -->
             <form action="{{ route('payment.store') }}" method="post" enctype="multipart/form-data">
-                <div class="p-6 space-y-6">
+                <div class="p-6 space-y-6 w-full">
                     @if (count($errors) > 0)
                         @foreach ($errors->all() as $message)
                             <div id="alert-2" class="flex gap-3 bg-red-100 rounded-lg p-4 mb-4 items-center text-red-700"
@@ -39,28 +39,32 @@
                             </div>
                         @endforeach
                     @endif
-
-
                     @csrf
-                    <div class="mb-6">
-                        <input type="text" id="Name" name="payment_name"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            placeholder="Payment Method Name" value="" required>
+                    <div class="flex mb-6 w-full gap-2 sm:flex-row flex-col">
+                        <div class="sm:w-1/2 mb-4 space-y-1">
+                            <label class="text-gray-500 font-bold" for="name">Nama Metode</label>
+                            <input type="text" id="Name" name="payment_name"
+                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                placeholder=" Nama Bank / Digital Bank" value="" required>
+                        </div>
+                        <div class="sm:w-1/2 mb-4 space-y-1">
+                            <label class="text-gray-500 font-bold" for="category">Kategori</label>
+                            <select name="category"
+                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                required>
+                                <option value="Transfer Bank">Transfer Bank</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="mb-6">
-                        <select name="category"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            required>
-                            <option value="Transfer Bank">Transfer Bank</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
+                    <div class="mb-6 space-y-2">
+                        <label class="text-gray-500 font-bold" for="payment_notes">Catatan Pembayaran</label>
+                        <textarea name="payment_notes" id="editor"
+                            class="font-semibold border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            required rows="10" cols="50"></textarea>
                     </div>
-                    <div class="mb-6">
-                        <textarea name="payment_notes"
-                            class="font-semibold capitalize shadow-sm bg-gray-50 focus:bg-white border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            required> Payment Notes</textarea>
-                    </div>
-                    <div class="mb-6">
+                    <div class="mb-6 space-y-2">
+                        <label class="text-gray-500 font-bold" for="image">Logo</label>
                         <input
                             class="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg
                                     @error('image') is-invalid @enderror"
