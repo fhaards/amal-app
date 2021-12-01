@@ -61,7 +61,7 @@
                         <label class="text-gray-500 font-bold" for="payment_notes">Catatan Pembayaran</label>
                         <textarea name="payment_notes" id="editor"
                             class="font-semibold border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            required rows="10" cols="50"></textarea>
+                            rows="10" cols="50"></textarea>
                     </div>
                     <div class="mb-6 space-y-2">
                         <label class="text-gray-500 font-bold" for="image">Logo</label>

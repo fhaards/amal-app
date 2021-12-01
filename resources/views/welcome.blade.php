@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="py-32 bg-white md:px-0 w-full">
+    <section class="h-screen bg-white md:px-0 w-full">
         <div class="container items-center max-w-6xl px-8 mx-auto xl:px-0 w-full">
-            <div class="flex flex-wrap items-center sm:-mx-3">
+            <div class="flex flex-wrap items-center sm:-mx-3 py-32">
                 <div class="w-full md:w-1/2 md:px-3">
                     <div
                         class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
@@ -29,8 +29,11 @@
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <div class="w-full h-auto overflow-hidden shadow-xl rounded-3xl">
-                        <img src="https://cdn.devdojo.com/images/november2020/hero-image.jpeg" class="">
+                    <div class="w-full h-auto overflow-hidden">
+                        <svg version="1.1" id="logo" class="h-96 mt-2" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%" >
+                            <image href="{{ asset('img/app-img/heroimg.svg') }}" height="100%"/>
+                        </svg>
                     </div>
                 </div>
             </div>
