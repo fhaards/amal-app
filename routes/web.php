@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\PaymentMethodsController;
+use App\Http\Controllers\CompaniesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,11 @@ Route::get('/home', [App\Http\Controllers\ProfileController::class, 'index'])->n
 
 
 Route::group(['middleware' => 'auth'], function () {
+    /*--------------------------------------------------------------------------
+    | Profiles
+    |--------------------------------------------------------------------------*/
+    Route::resource('companies', CompaniesController::class);
+    
     /*--------------------------------------------------------------------------
     | Profiles
     |--------------------------------------------------------------------------*/

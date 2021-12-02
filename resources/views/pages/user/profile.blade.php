@@ -90,8 +90,6 @@
                                 <i
                                     class="text-green-400 sm:text-gray-800 order-first fe fe-user sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Profile</div>
-                                <span
-                                    class="order-last fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>
                             </a>
                             @if ($user->user_group == 'admin')
                                 <a href="{{ route('payment.index') }}" type="button"
@@ -100,15 +98,17 @@
                                         class="text-green-400 sm:text-gray-800 order-first fe fe-credit-card sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                     <div class="font-semibold sm:text-gray-800 text-gray-600">Payment Method</div>
                                 </a>
+                                <a href="{{ route('companies.index') }}" type="button"
+                                    class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                    <i class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                    <div class="font-semibold sm:text-gray-800 text-gray-600">About Companies</div>
+                                </a>
                             @endif
 
                             <a href="{{ route('profile.edit', $user->id) }}" type="button"
                                 class="sm:w-full w-56 inline-flex px-4 py-2  flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:rounded-b-lg  items-center">
-                                <i
-                                    class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
+                                <i class="text-green-400 sm:text-gray-800 order-first fe fe-settings sm:fe-12 fe-16 sm:font-medium font-bold text-gray-700"></i>
                                 <div class="font-semibold sm:text-gray-800 text-gray-600">Settings</div>
-                                <span
-                                    class="fe fe-alert-circle fe-6 text-red-500 font-bold {{ $user->user_phone != null && $user->user_address != null ? 'hidden' : '' }}"></span>
                             </a>
                         </div>
                     </div>

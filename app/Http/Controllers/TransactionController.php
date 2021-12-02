@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Helpers\Operating as OPS;
 use App\Models\User;
 use App\Models\Transaction as transc;
+use App\Models\About_company as AC;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -233,20 +234,24 @@ class TransactionController extends Controller
         $data = [];
         $transc = DB::table('transactions as trans')
             ->leftJoin('users as users', 'trans.user_id', 'users.id')
+            ->leftJoin('payment_methods as paymethod', 'trans.method_id', 'paymethod.id')
             ->select(
                 'id_transaction',
                 'aliases',
                 'amount',
                 'trans.created_at as created_trans',
-                'status',
+                'trans.status as status',
                 'proofment',
                 'users.name as owner_name',
                 'users.user_phone as owner_phone',
-                'users.user_address as owner_address'
+                'users.user_address as owner_address',
+                'paymethod.payment_name as payname',
+                'paymethod.category as paycat'
             );
 
         $transc = $transc->where('id_transaction', $id);
         $getData['data'] = $transc->get();
+        $getData['comp'] = AC::where('id', 1)->first();
         $pdf = PDF::loadview('pages/transaction/print_invoice', $getData);
         return $pdf->stream('invoice-amal-' . $id . '.pdf');
     }

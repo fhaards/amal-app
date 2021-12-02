@@ -68,7 +68,7 @@ class ProfileController extends Controller
         $request->user()->update(
             $request->all()
         );
-        return redirect()->route('profile.edit', $id)->with('success', 'Update Successfully!');;
+        return redirect()->route('profile.edit', $id)->with('success', 'Update Successfully!');
     }
 
     public function editPhoto()

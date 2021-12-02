@@ -13,7 +13,7 @@
                     My Full Name
                 </label>
                 <input type="text" id="name" name="name"
-                    class="font-bold capitalize shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     value="{{ $user->name }}" required>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -22,7 +22,7 @@
                         Email
                     </label>
                     <input type="email" id="email" name="email"
-                        class="font-bold  shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold  border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                         value="{{ old('email', $user->email) }}" required>
                 </div>
                 <div class="w-full md:w-1/2 px-3">
@@ -30,7 +30,7 @@
                         Phone Number
                     </label>
                     <input type="text" id="phone-number" name="user_phone"
-                        class="font-bold shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                         value="{{ old('user_phone', $user->user_phone) }}" required>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     Address
                 </label>
                 <textarea
-                    class="font-bold capitalize shadow-sm bg-gray-100 focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                     id="address" name="user_address">{{ $user->user_address }}</textarea>
             </div>
 
@@ -47,6 +47,7 @@
         </form>
     </div>
 @endsection
+
 {{-- <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                 <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="city">
