@@ -44,7 +44,7 @@
                             Home
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="#"
                             class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0">
                             About
@@ -55,7 +55,7 @@
                             class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0">
                             Services
                         </a>
-                    </li>
+                    </li> --}}
                     @guest
                         @if (Route::has('login'))
                             <li>
@@ -68,7 +68,6 @@
                             <li>
                                 <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
                                     href="{{ route('register') }}">
-                                    <i class="fe fe-log-in fe-12 font-black"></i>
                                     <span class="pl-2">{{ __('Register') }}</span></a>
                             </li>
                         @endif
