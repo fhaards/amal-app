@@ -55,7 +55,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row py-4">
+                            {{-- <div class="form-group row py-4">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check w-full mt-4 text-sm text-gray-500">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
@@ -66,7 +66,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="block">
                                 <button
                                     class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
@@ -76,17 +76,18 @@
                                     </div>
                                 </button>
                             </div>
-                            <p class="w-full mt-4 text-sm text-center text-gray-500"> Don't have an account?
+                            <p class="w-full mt-4 text-sm text-center text-gray-500"> 
+                                Don't have an account?
                                 <a href="{{ route('register') }}" class="text-blue-500 underline">
                                     Sign up here</a>
                             </p>
-                            @if (Route::has('password.request'))
+                            {{-- @if (Route::has('password.request'))
                                 <p class="w-full mt-4 text-sm text-center text-gray-500">
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 </p>
-                            @endif
+                            @endif --}}
                         </div>
                     </form>
                 </div>
