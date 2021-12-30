@@ -41,7 +41,7 @@
                         <a href="{{ route('homepages') }}"
                             class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block  pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
                             aria-current="page">
-                            Home
+                            Beranda
                         </a>
                     </li>
                     {{-- <li>
@@ -59,23 +59,23 @@
                     @guest
                         @if (Route::has('login'))
                             <li>
-                                <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
-                                    href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                    href="{{ route('login') }}">Masuk</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li>
-                                <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
                                     href="{{ route('register') }}">
-                                    <span class="pl-2">{{ __('Register') }}</span></a>
+                                    <span class="pl-2">Registrasi</span></a>
                             </li>
                         @endif
 
                     @else
                         @if (Auth::user()->user_group == 'user')
                             <li class="">
-                                <a class="font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
                                     href="{{ route('beramal') }}">
                                     Beramal
                                 </a>
@@ -84,7 +84,7 @@
 
                         <li class="w-full">
                             <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
-                                class="md:w-auto w-full items-center spacer-6 font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
+                                class="md:w-auto w-full items-center spacer-6 text-base font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
                                 type="button">
                                 <i class="fe fe-user fe-12 font-black"></i>
                                 <span class="pl-2">{{ Auth::user()->name }}</span>
@@ -96,11 +96,11 @@
                                     aria-labelledby="dropdownDividerButton">
                                     <li>
                                         <a href="{{ route('profile.index') }}"
-                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profile</a>
+                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Profil</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Settings</a>
+                                            class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Pengaturan</a>
                                     </li>
 
                                     <li class="py-1">
@@ -108,7 +108,7 @@
                                             href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fe fe-log-out fe-16 pr-2"></i>
-                                            {{ __('Logout') }}
+                                            Keluar
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"

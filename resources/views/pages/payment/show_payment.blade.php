@@ -4,6 +4,9 @@
 
     <div class="flex flex-col bg-white md:mt-0 mt-5 mb-5 rounded-lg  w-full">
         <div class="flex gap-2">
+            <p class="text-green-500 sm:text-xl font-bold">
+                Metode Pembayaran
+            </p>
             <div class="flex flex-1">
                 @if (count($errors) > 0)
                     @foreach ($errors->all() as $message)
@@ -32,7 +35,7 @@
                 <button
                     class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center"
                     type="button" data-modal-toggle="add-payment-modal">
-                    <i class="fe fe-plus fe-16"></i> Add Payment Method
+                    <i class="fe fe-plus fe-16"></i> Tambah Pembayaran
                 </button>
             </div>
         </div>
@@ -46,22 +49,22 @@
                                 <tr class="">
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Payment Name
+                                        Pembayaran
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Category
+                                        Kategori
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Create at
+                                        Dibuat
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Update at
+                                        Diubah
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
-                                        <span class="sr-only">Edit</span>
+                                        <span class="sr-only">Ubah</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -85,7 +88,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <button type="button" data-id="{{ $paym->id }}"
                                                 class="edit-paymethod text-blue-600 hover:text-blue-900"
-                                                data-modal-toggle="edit-payment-modal">Edit</button>
+                                                data-modal-toggle="edit-payment-modal">Ubah</button>
                                         </td>
                                     </tr>
                                 @endforeach

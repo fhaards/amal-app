@@ -31,17 +31,17 @@
                     <div class="flex flex-col items-end items-center justify-start w-100 h-full  ">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <h4 class="w-full text-3xl font-bold">Signup</h4>
-                            <p class="text-lg text-gray-500">or, if you have an account you can
-                                <a href="{{ route('login') }}" class="text-green-400 underline">sign in</a>
+                            <h4 class="w-full text-3xl font-bold">Registrasi</h4>
+                            <p class="text-lg text-gray-500">atau, jika kamu sudah memiliki akun
+                                <a href="{{ route('login') }}" class="text-green-400 underline">klik masuk</a>
                             </p>
                             <div class="relative w-full mt-10 space-y-8">
                                 <div class="relative">
-                                    <label class="font-medium text-gray-900">Name</label>
+                                    <label class="font-medium text-gray-900">Nama</label>
                                     <input
                                         class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('name') is-invalid @enderror"
-                                        placeholder="Enter Your Name" id="name" type="text" class=""
+                                        placeholder="Ketikan Nama " id="name" type="text" class=""
                                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                     <input
                                         class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
                                         @error('email') is-invalid @enderror"
-                                        placeholder="Enter Your Email Address" id="email" type="email" name="email"
+                                        placeholder="Ketikan Email Saya" id="email" type="email" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
 
                                     <input
                                         class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                                        placeholder="Confirm Password" id="password-confirm" type="password"
+                                        placeholder="Konfirmasi Password" id="password-confirm" type="password"
                                         class="form-control" name="password_confirmation" required
                                         autocomplete="new-password">
                                 </div>
@@ -88,7 +88,7 @@
                                         class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
                                         <div class="flex flex-row justify-center items-center">
                                             <i class="fe fe-log-in fe-14 mr-3"></i>
-                                            <p>Register</p>
+                                            <p>Registrasi</p>
                                         </div>
                                     </button>
                                 </div>

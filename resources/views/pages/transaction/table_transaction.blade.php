@@ -2,13 +2,16 @@
 
 @section('profile-contents')
 
-    <div class="md:mt-0 mt-4 flex flex-1 flex-col">
-        <h5 class=" font-semibold mb-5">
+    <div class="md:mt-0 mt-4 flex flex-1 flex-col gap-4">
+        <p class="text-green-500 sm:text-xl font-bold">
             Tabel Transaksi
-        </h5>
+        </p>
+        <div class="">
+            @include('pages.transaction.filter_transaction')
+        </div>
         <div class="overflow-x-auto sm:-mx-6">
             <div class="inline-block min-w-full sm:px-6">
-                <div class="overflow-hidden sm:rounded-xl shadow-sm">
+                <div class="overflow-hidden sm:rounded-xl border">
 
                     @if ($transaction->isEmpty())
                         <div class="text-center p-5 h-48 flex items-center justify-center">
@@ -44,7 +47,7 @@
                                 </div>
                             @endforeach
                         @endif
-                        <table class="max-w-full w-full h-100 table-list border" id="table-trans">
+                        <table class="max-w-full w-full h-100 table-list" id="table-trans">
                             <thead class="rounded-t-xl bg-gray-100">
                                 <tr class="">
                                     <th scope="col"
@@ -53,15 +56,15 @@
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Aliases
+                                        Alias
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Amount
+                                        Nominal
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
-                                        Date
+                                        Tanggal
                                     </th>
                                     <th scope="col"
                                         class="text-xs font-medium text-gray-700 px-6 py-3 text-left uppercase tracking-wider">
@@ -106,7 +109,8 @@
                                             Rp {{ number_format($ts->amount) }}
                                         </td>
                                         <td class="spaceUnder text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
-                                            {{ date_format($ts->created_at, 'D, m/Y - H:i') }}
+                                            {{ $ts->created_at->isoFormat('dddd, D MMMM Y') }}
+                                            {{-- {{ date_format($ts->created_at, 'D, m/Y - H:i') }} --}}
                                         </td>
                                         <td class="spaceUnder text-sm text-gray-500 px-6 py-4 whitespace-nowrap">
                                             <span
@@ -130,6 +134,7 @@
                                     </tr>
 
                                 @endforeach
+                            </tbody>
                         </table>
                     @endif
 
@@ -138,7 +143,12 @@
         </div>
 
         <div class="text-center p-5">
-            {!! $transaction->links() !!}
+            @if (!empty($urlquery['req_status']))
+                {!! $transaction->appends(Request::except('page'))->render() !!}
+            @else
+                {!! $transaction->appends(Request::except('page', 'req_status'))->render() !!}
+            @endif
+            {{-- {!! $transaction->links() !!} --}}
         </div>
     </div>
 @endsection

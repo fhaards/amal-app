@@ -6,11 +6,11 @@
             @csrf
             @method('PUT')
             <div class="w-full pb-3 border-b mb-5">
-                <h4 class="font-bold tracking-wide text-gray-700">Edit Profile</h4>
+                <h4 class="font-bold tracking-wide text-gray-700">Ubah Profil</h4>
             </div>
             <div class="mb-6">
                 <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="name">
-                    My Full Name
+                    Nama Lengkap
                 </label>
                 <input type="text" id="name" name="name"
                     class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
@@ -27,7 +27,7 @@
                 </div>
                 <div class="w-full md:w-1/2 px-3">
                     <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="phone-number">
-                        Phone Number
+                        No. Telpon
                     </label>
                     <input type="text" id="phone-number" name="user_phone"
                         class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
@@ -36,7 +36,7 @@
             </div>
             <div class="">
                 <label class="block capitalize tracking-wide text-gray-500 text-sm font-bold mb-2" for="address">
-                    Address
+                    Alamat
                 </label>
                 <textarea
                     class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"

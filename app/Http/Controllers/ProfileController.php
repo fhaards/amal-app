@@ -33,8 +33,18 @@ class ProfileController extends Controller
     }
     public function index()
     {
-        $data['user']      = Auth::user(); 
+
+        $data['user'] = Auth::user();
+        $getUserGroup = Auth::user()->user_group;
+        $getId = Auth::user()->id;
+        $transact = transc::query();
+        if ($getUserGroup == 'user') :
+            $transact =  $transact->where('user_id', $getId);
+        endif;
+        $transact->orderBy('created_at', 'desc');
+        $data['transaction'] = $transact->offset(0)->limit(5)->get();
         return view('pages.user.profile_dashboard', $data);
+        // $data['transaction'] = $transact->offset(0)->limit(3)->get();
     }
 
     public function profile()

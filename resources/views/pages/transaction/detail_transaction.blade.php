@@ -78,7 +78,7 @@
                         @endif
                     </form>
                     <div class="flex flex-col sm:flex-row sm:flex-between gap-3" id="img-proofment">
-                        <div class="font-semibold md:w-48 pb-0">Transfer Proofment</div>
+                        <div class="font-semibold md:w-48 pb-0">Bukti Pembayaran</div>
                         <div class="img-proofment-file"></div>
                     </div>
                 </div>

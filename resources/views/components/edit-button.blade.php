@@ -3,7 +3,7 @@
 
     <i class="fe fe-edit fe-12"></i>
     <span class="font-bold">
-        Edit
+        Ubah
     </span>
 
 </button>

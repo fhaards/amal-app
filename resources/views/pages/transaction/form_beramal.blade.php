@@ -117,8 +117,9 @@
                                     </div>
 
                                     <button @click="step = 1"
-                                        class="w-40 block mx-auto focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border">Back
-                                        to home</button>
+                                        class="w-40 block mx-auto focus:outline-none py-2 px-5 rounded-lg shadow-sm text-center text-gray-600 bg-white hover:bg-gray-100 font-medium border">
+                                        Kembali ke beranda
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -132,19 +133,19 @@
                                     <div class="flex-1">
                                         <div x-show="step === 1">
                                             <div class="text-lg font-bold text-gray-700 leading-tight">
-                                                Personal
+                                                Pribadi
                                             </div>
                                         </div>
 
                                         <div x-show="step === 2">
                                             <div class="text-lg font-bold text-gray-700 leading-tight">
-                                                Payment
+                                                Pembayaran
                                             </div>
                                         </div>
 
                                         <div x-show="step === 3">
                                             <div class="text-lg font-bold text-gray-700 leading-tight">
-                                                Details
+                                                Detail
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +180,7 @@
                                 <div x-show.transition.in="step === 2">
                                     <div class="mb-5">
                                         <label for="password" class="font-bold mb-1 text-gray-700 block">
-                                            Select Payment Method
+                                            Pilih Metode Pembayaran
                                         </label>
 
                                         <div class="select-payment flex flex-col mt-5"> {{-- Looping in Js --}}
@@ -189,7 +190,7 @@
                                 <div x-show.transition.in="step === 3">
                                     <div class="mb-5">
                                         <label for="payment" x-model="payment" class="font-bold mb-1 text-gray-700 block">
-                                            Summary
+                                            Ringkasan
                                         </label>
                                         <div
                                             class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
@@ -198,7 +199,7 @@
                                                 <span class="w-2/3" id="detail-aliases"> </span>
                                             </div>
                                             <div class="flex justify-between py-2 border-t border-gray-200">
-                                                <span class="w-1/2 font-bold">Amount </span>
+                                                <span class="w-1/2 font-bold">Nominal </span>
                                                 <span class="w-2/3" id="detail-amount"></span>
                                             </div>
                                             {{-- <div class="flex justify-between py-2 border-t">
@@ -207,7 +208,7 @@
                                                 </div> --}}
                                         </div>
                                         <div class="flex flex-col">
-                                            <p class="font-bold mb-1 text-gray-700 block"> Complete payment : </p>
+                                            <p class="font-bold mb-1 text-gray-700 block"> Selesaikan Pembayaran : </p>
                                             <div
                                                 class="flex flex-col p-3 border-gray-200 border text-xs my-3 bg-gray-50 rounded-xl">
                                                 <p class="payment-notes text-sm"></p>

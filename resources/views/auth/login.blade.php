@@ -22,12 +22,12 @@
                 <div class="w-full mt-16 md:mt-0 md:w-2/5 z-0">
                     <form method="POST" action="{{ route('login') }}">
                         <div class="relative z-0 h-auto px-8 sm:px-0 py-16 sm:py-10 sm:px-10 overflow-hidden bg-white sm:border-b-2 sm:border-gray-300 sm:shadow-2xl sm:rounded-xl">
-                            <h3 class="mb-6 text-2xl font-medium text-center">Sign in to your Account</h3>
+                            <h3 class="mb-6 text-2xl font-medium text-center">Masuk ke Akun anda</h3>
                             @csrf
                             {{-- <input type="text" name="user_group" value="superadmin"> --}}
                             <div class="form-group row mb-4">
                                 <div class="col-md-6">
-                                    <input id="email" type="email" placeholder="Email address"
+                                    <input id="email" type="email" placeholder="Alamat Email"
                                         class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
                                         @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -55,39 +55,20 @@
                                     @enderror
                                 </div>
                             </div>
-                            {{-- <div class="form-group row py-4">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check w-full mt-4 text-sm text-gray-500">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="block">
                                 <button
                                     class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
                                     <div class="flex flex-row justify-center items-center">
                                         <i class="fe fe-log-in fe-14 mr-3"></i>
-                                        <p>Sign In</p>
+                                        <p>Masuk</p>
                                     </div>
                                 </button>
                             </div>
                             <p class="w-full mt-4 text-sm text-center text-gray-500"> 
-                                Don't have an account?
+                                Tidak punya akun ?
                                 <a href="{{ route('register') }}" class="text-blue-500 underline">
-                                    Sign up here</a>
+                                    Registrasi disini</a>
                             </p>
-                            {{-- @if (Route::has('password.request'))
-                                <p class="w-full mt-4 text-sm text-center text-gray-500">
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                </p>
-                            @endif --}}
                         </div>
                     </form>
                 </div>

@@ -35,18 +35,41 @@ class TransactionController extends Controller
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $getUserGroup = Auth::user()->user_group;
         $getId = Auth::user()->id;
         $data['user'] = Auth::user();
+        $urlquery = [];
+        $status = $request->get('status');
+        $ordate = $request->get('order_date');
+        $transact = transc::query();
+
         if ($getUserGroup == 'user') :
-            $data['transaction'] = transc::where('user_id', [$getId])->latest()->paginate(10);
-            return view('pages.transaction.table_transaction', $data)->with('i', (request()->input('page', 1) - 1) * 5);
-        else :
-            $data['transaction'] = transc::latest()->paginate(10);
-            return view('pages.transaction.table_transaction', $data)->with('i', (request()->input('page', 1) - 1) * 5);
+            $transact =  $transact->where('user_id', $getId);
         endif;
+
+        if (!is_null($status)) :
+            $transact =  $transact->where('status', $status);
+        endif;
+
+        if (!is_null($ordate)) :
+            if ($ordate == 'desc') {
+                $transact =  $transact->orderBy('created_at', 'desc');
+            }
+            if ($ordate == 'asc') {
+                $transact = $transact->orderBy('created_at', 'asc');
+            }
+        endif;
+
+        $data['transaction'] = $transact->latest()->paginate(5);
+        $data['urlquery'] = ['status' => $status, 'ordate' => $ordate];
+        return view('pages.transaction.table_transaction', $data);
+
+        // $data['transaction'] = transc::where('user_id', [$getId])->latest()->paginate(10);
+        // return view('pages.transaction.table_transaction', $data)->with('i', (request()->input('page', 1) - 1) * 5);
+        // $data['transaction'] = transc::latest()->paginate(5);
+        // return view('pages.transaction.table_transaction', $data)->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function beramalForm()

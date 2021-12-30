@@ -6,7 +6,7 @@
             <!-- Modal header -->
             <div class="flex items-start justify-between p-5 border-b rounded-t">
                 <h3 class="text-xl lg:text-2xl font-semibold">
-                    Add Payment Method
+                    Edit Metode Pembayaran
                 </h3>
                 <button type="button"
                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"

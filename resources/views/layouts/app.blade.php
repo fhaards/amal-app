@@ -24,6 +24,7 @@
 
 <body style="font-family: Nunito">
     <div id="app" class="max-w-screen">
+        
         @include('sweetalert::alert')
         @include('layouts/topnav')
         <main class="">

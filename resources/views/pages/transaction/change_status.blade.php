@@ -30,7 +30,7 @@
                     <div class="flex flex-col gap-3">
                         <div>
                             <h4 class="text-2xl font-bold text-gray-700 text-center">
-                                Change Status to Complete
+                                Ganti Status ke Complete
                             </h4>
                         </div>
                         <div class="flex flex-row-reverse">
