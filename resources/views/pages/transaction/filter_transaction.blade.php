@@ -21,7 +21,7 @@
 
         <div>
             <button type="submit"
-                class="bg-blue-800 hover:bg-blue-900 inline-flex items-center justify-center text-xs p-2.5 rounded-lg">
+                class="bg-primary hover:bg-green-600 inline-flex items-center justify-center text-xs p-2.5 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="4" y1="21" x2="4" y2="14"></line>

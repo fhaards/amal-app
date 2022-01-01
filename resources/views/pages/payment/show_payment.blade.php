@@ -4,7 +4,7 @@
 
     <div class="flex flex-col bg-white md:mt-0 mt-5 mb-5 rounded-lg  w-full">
         <div class="flex gap-2">
-            <p class="text-green-500 sm:text-xl font-bold">
+            <p class="text-primary sm:text-xl font-bold">
                 Metode Pembayaran
             </p>
             <div class="flex flex-1">
@@ -33,7 +33,7 @@
             </div>
             <div class="pb-5 order-2">
                 <button
-                    class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center"
+                    class="text-white bg-primary hover:bg-primary focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center"
                     type="button" data-modal-toggle="add-payment-modal">
                     <i class="fe fe-plus fe-16"></i> Tambah Pembayaran
                 </button>

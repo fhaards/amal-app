@@ -1,34 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="w-full pt-16 md:py-24 bg-green-100 xl:px-8">
+    <section class="w-full py-4 sm:py-24 sm:bg-gradient-to-r from-white via-white to-primary xl:px-8">
         <div class="max-w-6xl sm:mx-auto">
             <div class="flex flex-col items-center md:flex-row md:px-0">
-                <div class="px-8 sm:pr-24 my-20 sm:px-0 sm:my-0 w-full space-y-5 md:w-3/5 md:bg-transparent bg-green-100 ">
-                    <p class="font-medium text-green-400 uppercase">
-                        <svg version="1.1" id="logo" class="h-10" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" height="50">
-                            <image href="{{ asset('img/app-img/logo.svg') }}" height="35" />
-                        </svg>
-                    </p>
-                    <h3 class="text-3xl font-bold text-gray-900 xl:text-6xl">
+                <div class="px-8 sm:pr-24 my-20 sm:px-0 sm:my-0 w-full space-y-5 md:w-3/5 md:bg-transparent ">
+                    <div class="w-full flex flex-row justify-center sm:justify-start">
+                        <img src="{{ asset('img/app-img/logo.png') }}" class="img-responsive w-24 sm:w-24" />
+                    </div>
+                    <h3 class="text-xl sm:text-3xl font-bold text-gray-900 xl:text-6xl text-center sm:text-left">
                         Tersenyum di wajah
                         saudaramu adalah tindakan amal.
                     </h3>
-                    <p class="text-gray-700">Sabarlah dalam doa, lakukan amal yang teratur, dan tundukkan
+                    <p class="text-gray-700 sm:text-base text-sm text-center sm:text-left">Sabarlah dalam doa, lakukan amal
+                        yang teratur, dan tundukkan
                         kepalamu dengan orang yang sujud (dalam ibadah).</p>
                 </div>
 
-                <div class="w-full mt-16 md:mt-0 md:w-2/5 z-0">
+                <div class="w-full sm:mt-16 md:mt-0 md:w-2/5 z-0">
                     <form method="POST" action="{{ route('login') }}">
-                        <div class="relative z-0 h-auto px-8 sm:px-0 py-16 sm:py-10 sm:px-10 overflow-hidden bg-white sm:border-b-2 sm:border-gray-300 sm:shadow-2xl sm:rounded-xl">
+                        <div
+                            class="relative z-0 h-auto px-8 sm:px-0 py-16 sm:py-10 sm:px-10 overflow-hidden bg-white sm:border-b-2 sm:border-gray-300 sm:shadow-2xl sm:rounded-xl">
                             <h3 class="mb-6 text-2xl font-medium text-center">Masuk ke Akun anda</h3>
                             @csrf
                             {{-- <input type="text" name="user_group" value="superadmin"> --}}
                             <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="email" type="email" placeholder="Alamat Email"
-                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 
                                         @error('email') is-invalid @enderror"
                                         name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -43,10 +42,9 @@
                             <div class="form-group row mb-4">
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5
                                         @error('password') is-invalid @enderror"
-                                        placeholder="Password"
-                                        name="password" required autocomplete="current-password">
+                                        placeholder="Password" name="password" required autocomplete="current-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -57,14 +55,14 @@
                             </div>
                             <div class="block">
                                 <button
-                                    class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
+                                    class="w-full  px-3 py-3 font-bold text-white bg-primary rounded-xl hover:bg-primary">
                                     <div class="flex flex-row justify-center items-center">
                                         <i class="fe fe-log-in fe-14 mr-3"></i>
                                         <p>Masuk</p>
                                     </div>
                                 </button>
                             </div>
-                            <p class="w-full mt-4 text-sm text-center text-gray-500"> 
+                            <p class="w-full mt-4 text-sm text-center text-gray-500">
                                 Tidak punya akun ?
                                 <a href="{{ route('register') }}" class="text-blue-500 underline">
                                     Registrasi disini</a>

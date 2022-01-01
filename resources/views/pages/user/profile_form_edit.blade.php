@@ -13,7 +13,7 @@
                     Nama Lengkap
                 </label>
                 <input type="text" id="name" name="name"
-                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                     value="{{ $user->name }}" required>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -22,7 +22,7 @@
                         Email
                     </label>
                     <input type="email" id="email" name="email"
-                        class="font-bold  border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold  border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                         value="{{ old('email', $user->email) }}" required>
                 </div>
                 <div class="w-full md:w-1/2 px-3">
@@ -30,7 +30,7 @@
                         No. Telpon
                     </label>
                     <input type="text" id="phone-number" name="user_phone"
-                        class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                         value="{{ old('user_phone', $user->user_phone) }}" required>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     Alamat
                 </label>
                 <textarea
-                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                     id="address" name="user_address">{{ $user->user_address }}</textarea>
             </div>
 
@@ -54,7 +54,7 @@
                     City
                 </label>
                 <input type="text" id="city"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                     placeholder="My City" required>
             </div>
             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -62,7 +62,7 @@
                     Countries
                 </label>
                 <select id="countries"
-                    class="bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    class="bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5">
                     <option>United States</option>
                     <option>Canada</option>
                     <option>France</option>
@@ -74,7 +74,7 @@
                     Zip
                 </label>
                 <input type="text" id="zip"
-                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                     placeholder="16340" required>
             </div>
         </div> --}}

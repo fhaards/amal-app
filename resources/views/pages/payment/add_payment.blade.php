@@ -44,13 +44,13 @@
                         <div class="sm:w-1/2 mb-4 space-y-1">
                             <label class="text-gray-500 font-bold" for="name">Nama Metode</label>
                             <input type="text" id="Name" name="payment_name"
-                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                                 placeholder=" Nama Bank / Digital Bank" value="" required>
                         </div>
                         <div class="sm:w-1/2 mb-4 space-y-1">
                             <label class="text-gray-500 font-bold" for="category">Kategori</label>
                             <select name="category"
-                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                class="font-semibold capitalize  border border-gray-300  sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                                 required>
                                 <option value="Transfer Bank">Transfer Bank</option>
                                 <option value="Lainnya">Lainnya</option>
@@ -60,7 +60,7 @@
                     <div class="mb-6 space-y-2">
                         <label class="text-gray-500 font-bold" for="payment_notes">Catatan Pembayaran</label>
                         <textarea name="payment_notes" id="editor"
-                            class="font-semibold border border-gray-300  sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="font-semibold border border-gray-300  sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                             rows="10" cols="50"></textarea>
                     </div>
                     <div class="mb-6 space-y-2">
@@ -76,7 +76,7 @@
                 <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
                     <div class="flex flex-1"></div>
                     <button data-modal-toggle="add-payment-modal" type="submit"
-                        class="text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center">
+                        class="text-white bg-primary hover:bg-primary focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-xs px-3 py-2 text-center inline-flex gap-2 items-center">
                         Submit
                     </button>
                     <button data-modal-toggle="add-payment-modal" type="button"

@@ -3,8 +3,8 @@
 @section('profile-contents')
     <div class="flex flex-col h-auto w-full sm:gap-4 gap-2">
         <div
-            class="sm:h-48 w-full bg-white my-5 md:my-0 py-6 px-6 rounded-xl bg-gradient-to-r from-white to-green-400">
-            <p class="text-green-500 sm:text-xl font-bold pt-4 pb-2">
+            class="sm:h-48 w-full bg-white my-5 md:my-0 py-6 px-6 rounded-xl bg-gradient-to-r from-white to-primary">
+            <p class="text-gray-700 sm:text-xl font-bold pt-4 pb-2">
                 Halo, Selamat Datang Kembali
             </p>
             <div class="text-gray-800 sm:text-3xl font-bold">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div
-            class="rounded-xl font-bold bg-gradient-to-r from-white to-green-300 text-gray-800 border-bottom-1 flex justify-between flex-row p-5">
+            class="rounded-xl font-bold bg-gradient-to-r from-white to-primary text-gray-800 border-bottom-1 flex justify-between flex-row p-5">
             <div class="">
                 Transaksi Terakhir
             </div>

@@ -2,7 +2,7 @@
 
 @section('profile-contents')
     <div class="flex flex-col gap-4 w-full sm:pt-0 pt-6">
-        <p class="text-green-500 sm:text-xl font-bold">
+        <p class="text-primary sm:text-xl font-bold">
             Tentang Perusahaan / Aplikasi
         </p>
         <div class="md:h-auto flex-grow bg-white mt-5 md:mt-0 p-6 shadow-sm border border-gray-200 rounded-lg">
@@ -40,7 +40,7 @@
                         Perusahaan / Nama Aplikasi
                     </label>
                     <input type="text" id="name" name="comp_name"
-                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                         value="{{ $comp->comp_name }}">
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -49,7 +49,7 @@
                             Email
                         </label>
                         <input type="email" id="email" name="comp_email"
-                            class="font-bold  border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="font-bold  border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                             value="{{ old('comp_email', $comp->comp_email) }}">
                     </div>
                     <div class="w-full md:w-1/2 px-3">
@@ -58,7 +58,7 @@
                             No. Telepon
                         </label>
                         <input type="text" id="phone-number" name="comp_phone"
-                            class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                            class="font-bold border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                             value="{{ old('comp_phone', $comp->comp_phone) }}">
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         Alamat
                     </label>
                     <textarea
-                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                         id="address" name="comp_address">{{ $comp->comp_address }}</textarea>
                 </div>
 
@@ -76,7 +76,7 @@
                         Informasi Tentang
                     </label>
                     <textarea
-                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                        class="font-bold capitalize border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                         id="tinymce" name="comp_about">{{ $comp->comp_about }}</textarea>
                 </div>
 

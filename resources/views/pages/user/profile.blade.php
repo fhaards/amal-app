@@ -22,7 +22,7 @@
                     <div class="bg-white relative rounded-lg">
 
                         <div
-                            class="h-24 relative flex justify-center rounded-t-lg bg-gradient-to-r from-green-400 to-green-200">
+                            class="h-24 relative flex justify-center rounded-t-lg bg-gradient-to-r from-primary to-white">
                             <div
                                 class="border-solid border-4 border-white rounded-full w-32 h-32 absolute mt-8 bg-white flex items-center justify-center">
                                 @if ($user->user_photo != null)
@@ -83,23 +83,23 @@
                         <div
                             class="flex flex-nowrap max-w-full gap-2 sm:gap-0 overflow-x-auto flex-row sm:flex-col bg-white rounded-lg border border-gray-200 shadow-xl sm:shadow-none sm:py-0 py-2">
                             <a href="{{ route('transaction.index') }}" type="button"
-                                class="{{ $curUrl == 'transaction' ? 'text-green-400' : ''}}  sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm  sm:border-b border-gray-200  items-center">
+                                class="{{ $curUrl == 'transaction' ? 'text-primary' : ''}}  sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm  sm:border-b border-gray-200  items-center">
                                 <i class="order-first fe fe-dollar-sign fe-16"></i>
                                 <div class="font-semibold hidden sm:block">Transaksi</div>
                             </a>
                             <a href="{{ route('profile.index') }}" type="button"
-                                class="{{ $curUrl == 'profile' ? 'text-green-400' : ''}} font-bold sm:w-full w-56 inline-flex px-4 py-2 flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                class="{{ $curUrl == 'profile' ? 'text-primary' : ''}} font-bold sm:w-full w-56 inline-flex px-4 py-2 flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
                                 <i class="order-first fe fe-user fe-16"></i>
                                 <div class="font-semibold hidden sm:block">Profil</div>
                             </a>
                             @if ($user->user_group == 'admin')
                                 <a href="{{ route('payment.index') }}" type="button"
-                                    class="{{ $curUrl == 'payment' ? 'text-green-400' : ''}} sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                    class="{{ $curUrl == 'payment' ? 'text-primary' : ''}} sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
                                     <i class=" order-first fe fe-credit-card fe-16"></i>
                                     <div class="font-semibold hidden sm:block">Metode Pembayaran</div>
                                 </a>
                                 <a href="{{ route('companies.index') }}" type="button"
-                                    class="sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                    class="{{ $curUrl == 'companies' ? 'text-primary' : ''}} sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
                                     <i class=" order-first fe fe-feather fe-16"></i>
                                     <div class="font-semibold hidden sm:block">Tentang</div>
                                 </a>

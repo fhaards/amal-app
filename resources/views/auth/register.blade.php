@@ -1,25 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="w-full sm:bg-white bg-green-100">
-        <div class="mx-auto sm:max-w-7xl pt-16">
+    <section class="w-full sm:bg-white">
+        <div class="mx-auto sm:max-w-7xl py-8">
             <div class="flex flex-col md:flex-row">
                 <div class="relative w-full bg-cover rounded-3xl md:w-6/12 xl:w-7/12 sm:bg-gradient-to-r from-white via-white to-gray-100">
                     <div class="px-16 my-20 sm:px-16 sm:my-0  relative flex flex-col items-center justify-center w-full h-full">
                         <div class="flex flex-col items-start space-y-8 tracking-tight lg:max-w-3xl">
                             <div class="relative">
-                                <p class="mb-2 font-medium uppercase text-green-400">
-                                    <svg version="1.1" id="logo" class="h-10" xmlns="http://www.w3.org/2000/svg"
-                                        xmlns:xlink="http://www.w3.org/1999/xlink" height="50">
-                                        <image href="{{ asset('img/app-img/logo.svg') }}" height="35" />
-                                    </svg>
-                                </p>
-                                <h3 class="text-3xl font-bold text-gray-900 xl:text-6xl">
+                                <div class="w-full flex flex-row sm:justify-start justify-center mb-4">
+                                    <img src="{{ asset('img/app-img/logo.png') }}" class="img-responsive w-24 sm:w-24" />
+                                </div>
+                                <h3 class="sm:text-3xl text-xl font-bold text-gray-900 xl:text-6xl text-center sm:text-left">
                                     Beramal tidak akan mengurangi
                                     kekayaanmu
                                 </h3>
                             </div>
-                            <p class="text-gray-700">Jika kamu ingin berdoa kepada Allah untuk kebutuhan hidup yang
+                            <p class="text-gray-700 text-sm sm:text-base text-center sm:text-left">Jika kamu ingin berdoa kepada Allah untuk kebutuhan hidup yang
                                 lebih baik, maka pertama-tama berikanlah sesuatu dalam amal.Jika kamu ingin berdoa kepada
                                 Allah untuk kebutuhan hidup yang lebih baik, maka pertama-tama berikanlah sesuatu dalam
                                 amal.</p>
@@ -39,7 +36,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Nama</label>
                                     <input
-                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5
                                         @error('name') is-invalid @enderror"
                                         placeholder="Ketikan Nama " id="name" type="text" class=""
                                         name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -52,7 +49,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Email</label>
                                     <input
-                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5
                                         @error('email') is-invalid @enderror"
                                         placeholder="Ketikan Email Saya" id="email" type="email" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
@@ -65,7 +62,7 @@
                                 <div class="relative">
                                     <label class="font-medium text-gray-900">Password</label>
                                     <input
-                                        class="mb-4 font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5
+                                        class="mb-4 font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5
                                         @error('password') is-invalid @enderror"
                                         placeholder="Password" id="password" type="password" name="password" required
                                         autocomplete="new-password">
@@ -77,7 +74,7 @@
                                     @enderror
 
                                     <input
-                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                                        class="font-bold focus:bg-white border border-gray-300 text-gray-600 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                                         placeholder="Konfirmasi Password" id="password-confirm" type="password"
                                         class="form-control" name="password_confirmation" required
                                         autocomplete="new-password">
@@ -85,7 +82,7 @@
 
                                 <div class="relative">
                                     <button
-                                        class="w-full  px-3 py-3 font-bold text-white bg-green-400 rounded-xl hover:bg-green-500">
+                                        class="w-full  px-3 py-3 font-bold text-white bg-primary rounded-xl hover:bg-primary">
                                         <div class="flex flex-row justify-center items-center">
                                             <i class="fe fe-log-in fe-14 mr-3"></i>
                                             <p>Registrasi</p>

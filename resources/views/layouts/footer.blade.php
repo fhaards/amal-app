@@ -1,7 +1,7 @@
 <section class="text-gray-700 bg-white body-font">
     <div class="container flex flex-col items-center px-8 xl:px-0 py-8 mx-auto max-w-6xl sm:flex-row">
-        <p class="mt-4 text-sm text-gray-500 sm:mt-0">© 2021 Amal -
-            Aplikasi Amal Masjid
+        <p class="mt-4 text-sm text-gray-500 sm:mt-0">© 2021 - 
+            MASJID JAMI NURUL IHSAN
         </p>
         <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
             <a href="#" class="text-gray-400 hover:text-gray-500">

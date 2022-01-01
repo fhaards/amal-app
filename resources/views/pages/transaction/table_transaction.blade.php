@@ -3,7 +3,7 @@
 @section('profile-contents')
 
     <div class="md:mt-0 mt-4 flex flex-1 flex-col gap-4">
-        <p class="text-green-500 sm:text-xl font-bold">
+        <p class="text-primary sm:text-xl font-bold">
             Tabel Transaksi
         </p>
         <div class="">
@@ -123,7 +123,7 @@
                                                 @if ($ts->status === 'Paid / Waiting')
                                                     <button type="button" data-modal-toggle="change-status-trans-modal"
                                                         getIds="{{ $idtrans }}"
-                                                        class="changestatus-trans inline-flex p-2 text-white bg-green-400 rounded-lg hover:bg-green-500">
+                                                        class="changestatus-trans inline-flex p-2 text-white bg-primary rounded-lg hover:bg-primary">
                                                         <i class="fe fe-refresh-cw fe-12"></i>
                                                     </button>
                                                 @else

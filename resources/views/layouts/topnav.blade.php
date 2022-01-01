@@ -1,10 +1,10 @@
 <nav class="w-full md:px-6 text-gray-700 z-10 fixed sm:relative h-16 transition-all duration-150 sm:h-24">
     <div class="container mx-auto w-100 px-3 pt-3 sm:pt-0">
         <div
-            class="w-full px-5 py-3  left:0 bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
+            class="w-full px-2 py-1  left:0 bg-white rounded-lg shadow-lg flex flex-wrap items-center justify-between 
                md:max-w-6xl md:py-3 md:px-0 md:mx-auto md:flex-row md:relative md:rounded-none md:shadow-none z-10">
 
-            <div class="flex md:order-2 ">
+            <div class="flex md:order-2">
                 <button data-collapse-toggle="mobile-menu-2" type="button"
                     class="w-xl button items-center md:hidden text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-300 rounded-lg justify-between"
                     aria-controls="mobile-menu-3" aria-expanded="false">
@@ -23,11 +23,9 @@
                     </svg>
                 </button>
 
-                <a href="{{ route('homepages') }}" class="ml-10 md:ml-0 flex md:w-full w-full">
-                    <svg version="1.1" id="logo" class="h-10 mt-2" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" height="50">
-                        <image href="{{ asset('img/app-img/logo.svg') }}" height="25" />
-                    </svg>
+                <a href="{{ route('homepages') }}" class="ml-2 md:ml-0 flex md:w-full w-full items-center gap-3 py-2 rounded-xl sm:px-0">
+                    <img src="{{ asset('img/app-img/logo.png') }}" class="img-responsive h-6 sm:h-12" />
+                    <span class="font-black text-gray-800 tracking-widest sm:text-md text-sm">MASJID JAMI NURUL IHSAN</span>
                 </a>
                 <div class="relative mr-3 md:mr-0 hidden md:block">
                     {{-- search --}}
@@ -39,34 +37,34 @@
                 <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-bold">
                     <li>
                         <a href="{{ route('homepages') }}"
-                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block  pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block  pl-3 pr-4 py-2 md:hover:text-primary md:p-0"
                             aria-current="page">
                             Beranda
                         </a>
                     </li>
                     {{-- <li>
                         <a href="#"
-                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0">
+                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-primary md:p-0">
                             About
                         </a>
                     </li>
                     <li>
                         <a href="#"
-                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0">
+                            class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-primary md:p-0">
                             Services
                         </a>
                     </li> --}}
                     @guest
                         @if (Route::has('login'))
                             <li>
-                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-primary md:p-0"
                                     href="{{ route('login') }}">Masuk</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li>
-                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-primary md:p-0"
                                     href="{{ route('register') }}">
                                     <span class="pl-2">Registrasi</span></a>
                             </li>
@@ -75,7 +73,7 @@
                     @else
                         @if (Auth::user()->user_group == 'user')
                             <li class="">
-                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-green-400 md:p-0"
+                                <a class="text-base font-bold leading-6 text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-primary md:p-0"
                                     href="{{ route('beramal') }}">
                                     Beramal
                                 </a>
@@ -84,7 +82,7 @@
 
                         <li class="w-full">
                             <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
-                                class="md:w-auto w-full items-center spacer-6 text-base font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-green-400 md:p-0 focus:text-green-400"
+                                class="md:w-auto w-full items-center spacer-6 text-base font-bold leading-6 capitalize text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 inline-flex md:hover:text-primary md:p-0 focus:text-primary"
                                 type="button">
                                 <i class="fe fe-user fe-12 font-black"></i>
                                 <span class="pl-2">{{ Auth::user()->name }}</span>
@@ -128,27 +126,3 @@
         </div>
     </div>
 </nav>
-
-{{-- <section class="w-full px-8 text-gray-700 bg-white">
-    <div
-        class="container flex flex-col flex-wrap items-center justify-between py-5 px-8 xl:px-0 mx-auto md:flex-row max-w-6xl">
-        <div class="relative flex flex-col md:flex-row">
-            <a href="#_"
-                class="flex items-center mb-5 font-bold text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">tails<span
-                        class="text-green-400">.</span></span>
-            </a>
-            <nav
-                class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                <a href="#_" class="mr-5 font-bold leading-6 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="#_" class="mr-5 font-bold leading-6 text-gray-600 hover:text-gray-900">Amal</a>
-                <a href="#_" class="mr-5 font-bold leading-6 text-gray-600 hover:text-gray-900">About</a>
-                <a href="#_" class="mr-5 font-bold leading-6 text-gray-600 hover:text-gray-900">Contact</a>
-            </nav>
-        </div>
-
-        <div class="inline-flex items-center ml-5 space-x-6">
-
-        </div>
-    </div>
-</section> --}}
