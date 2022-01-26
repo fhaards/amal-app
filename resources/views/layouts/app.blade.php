@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app-custom.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/air-slider/air-slider.css') }}" rel="stylesheet">
 </head>
 
 <body style="font-family: Nunito">

@@ -3,13 +3,13 @@
 <script src="{{ asset('vendor/aos/aos.js') }}"></script>
 {{-- <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script> --}}
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 <script>
     var APP_URL = {!! json_encode(url('/')) !!}
     var STORAGE_URL = APP_URL + "/storage/";
     tinymce.init({
         selector: '#tinymce'
     });
-
     // var allEditors = document.querySelectorAll('#editor');
     // for (var i = 0; i < allEditors.length; ++i) {
     //     ClassicEditor.create(allEditors[i]);

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\PaymentMethodsController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\HomeContentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,15 +19,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('homepages');
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('homepages');
 
 Auth::routes();
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'homepages'])->name('homepages');
 Route::get('/home', [App\Http\Controllers\ProfileController::class, 'index'])->name('home');
-
-
 Route::group(['middleware' => 'auth'], function () {
     /*--------------------------------------------------------------------------
     | Profiles
@@ -63,4 +64,10 @@ Route::group(['middleware' => 'auth'], function () {
     | Counting
     |-------------------------------------------------------------------------- */
     Route::get('count/count-amal', [App\Http\Controllers\CountCountroller::class, 'countAmal']);
+
+        /*--------------------------------------------------------------------------
+    | Payment Methods
+    |--------------------------------------------------------------------------*/
+    Route::resource('homecontent', HomeContentController::class);
+    // Route::get('payments/getall', [App\Http\Controllers\PaymentMethodsController::class, 'getAll']);
 });

@@ -103,6 +103,11 @@
                                     <i class=" order-first fe fe-feather fe-16"></i>
                                     <div class="font-semibold hidden sm:block">Tentang</div>
                                 </a>
+                                <a href="{{ route('homecontent.index') }}" type="button"
+                                    class="{{ $curUrl == 'homecontent' ? 'text-primary' : ''}} sm:w-full w-56 inline-flex px-4 py-2 flex flex-col sm:flex-row sm:text-left text-center gap-1 sm:gap-3 hover:bg-gray-100 text-sm sm:border-b border-gray-200 items-center">
+                                    <i class=" order-first fe fe-image fe-16"></i>
+                                    <div class="font-semibold hidden sm:block">Slider</div>
+                                </a>
                             @endif
 
                             <a href="{{ route('profile.edit', $user->id) }}" type="button"

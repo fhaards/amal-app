@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentMethodsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CountCountroller;
+use App\Http\Controllers\HomeContentController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -35,5 +36,11 @@ Route::get('payments/getall', [App\Http\Controllers\PaymentMethodsController::cl
 |-------------------------------------------------------------------------- */
 
 Route::resource('transaction', TransactionController::class);
+
+/* --------------------------------------------------------------------------
+| Transaction
+|-------------------------------------------------------------------------- */
+
+Route::resource('homecontent', HomeContentController::class);
 
 
